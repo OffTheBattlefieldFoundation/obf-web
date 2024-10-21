@@ -1,5 +1,6 @@
-# otb-web
-Off The Battlfield Website built in NextJS
+# Off the Battlefield - Next.js Project
+
+This is the repository for the Off the Battlefield website, a platform dedicated to connecting veterans with compassionate companions. This Next.js project includes features like dynamic content rendering, SEO optimization, and responsive design.
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
