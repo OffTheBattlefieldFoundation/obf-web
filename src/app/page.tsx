@@ -5,7 +5,10 @@ export default function Home() {
     <div>
       <Head>
         <title>Off the Battlefield - Home</title>
-        <meta name="description" content="Helping veterans connect with compassionate companions." />
+        <meta
+          name="description"
+          content="Helping veterans connect with compassionate companions."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -14,13 +17,16 @@ export default function Home() {
         <p>Connecting veterans with the support of their communities.</p>
       </header>
 
-      <main >
+      <main>
         <p>
-          At Off the Battlefield, our mission is to bridge the gap between veterans and compassionate companions who can offer support and friendship. Explore our site to learn more about our initiatives and how you can get involved.
+          At Off the Battlefield, our mission is to bridge the gap between
+          veterans and compassionate companions who can offer support and
+          friendship. Explore our site to learn more about our initiatives and
+          how you can get involved.
         </p>
       </main>
 
-      <footer >
+      <footer>
         <p>Off the Battlefield © {new Date().getFullYear()}</p>
       </footer>
     </div>
