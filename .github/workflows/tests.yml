@@ -19,6 +19,6 @@ jobs:
           node-version: '20'
       - run: npm ci
       - name: Lint
-        run: next lint --max-warnings=0
+        run: npx next lint --max-warnings=0
       - name: Prettier
-        run: prettier . -c
+        run: npx prettier . -c
