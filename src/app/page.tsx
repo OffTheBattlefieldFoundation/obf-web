@@ -1,8 +1,9 @@
 import Head from 'next/head'
+import Mission from '@/components/Mission'
 
 export default function Home() {
   return (
-    <div>
+    <div className='p-24'>
       <Head>
         <title>Off the Battlefield - Home</title>
         <meta
@@ -24,6 +25,16 @@ export default function Home() {
           friendship. Explore our site to learn more about our initiatives and
           how you can get involved.
         </p>
+
+        <Mission />
+        <Mission />
+        <Mission />
+        <Mission />
+        <Mission />
+        <Mission />
+        <Mission />
+        <Mission />
+        <Mission />
       </main>
 
       <footer>

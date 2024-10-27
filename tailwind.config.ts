@@ -11,6 +11,12 @@ const config: Config = {
       colors: {
         background: 'var(--background)',
         foreground: 'var(--foreground)',
+        lime: {
+          25: '#f9fcf0'
+        },
+        custom: {
+          1: "#1E2203"
+        }
       },
     },
   },
