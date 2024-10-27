@@ -12,7 +12,10 @@ export default function MyNavbar() {
     threshold: 0,
   })
   return (
-    <AppBar className={trigger ? "bg-lime-50" : "bg-lime-25"} elevation={trigger ? 1 : 0}>
+    <AppBar
+      className={trigger ? 'bg-lime-50' : 'bg-lime-25'}
+      elevation={trigger ? 1 : 0}
+    >
       <div className="p-2 px-8">
         <Toolbar>
           <Image

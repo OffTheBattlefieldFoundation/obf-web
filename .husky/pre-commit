@@ -1,1 +1,2 @@
-npm run lint
+next lint --max-warnings=0
+prettier . -c

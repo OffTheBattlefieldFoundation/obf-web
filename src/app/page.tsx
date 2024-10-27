@@ -3,7 +3,7 @@ import Mission from '@/components/Mission'
 
 export default function Home() {
   return (
-    <div className='p-24'>
+    <div className="p-24">
       <Head>
         <title>Off the Battlefield - Home</title>
         <meta
