@@ -1,4 +1,4 @@
-name: Run Tests
+name: Run Linter
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  lint:
     runs-on: ubuntu-latest
 
     steps:
