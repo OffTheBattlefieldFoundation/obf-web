@@ -12,12 +12,13 @@ export default function MyNavbar() {
     disableHysteresis: true,
     threshold: 0,
   })
+
   return (
     <AppBar
       className={trigger ? 'bg-lime-50' : 'bg-lime-25'}
       elevation={trigger ? 1 : 0}
     >
-      <div className="p-2 px-8">
+      <div className={`${trigger ? 'py-2' : 'pt-8'} px-16 transition-all`}>
         <Toolbar>
           <Image
             className="inline"
