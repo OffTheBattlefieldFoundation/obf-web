@@ -31,13 +31,12 @@ export default function MyNavbar() {
             Off The Battlefield
           </Typography>
 
-          <div className="flex space-x-8 grow ml-12">
+          <div className="flex space-x-8 ml-12">
             <NavBarButton label="Home" />
             <NavBarButton label="Chapters" />
             <NavBarButton label="Get Involved" />
             <NavBarButton label="Donate" />
           </div>
-          <button className="text-custom-1">Login</button>
         </Toolbar>
       </div>
     </AppBar>
