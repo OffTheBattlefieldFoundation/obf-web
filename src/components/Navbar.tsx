@@ -5,6 +5,7 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Image from 'next/image'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
+import NavBarButton from '@/components/NavbarButton'
 
 export default function MyNavbar() {
   const trigger = useScrollTrigger({
@@ -25,14 +26,16 @@ export default function MyNavbar() {
             width="48"
             height="48"
           />
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{ flexGrow: 1 }}
-            color="primary"
-          >
+          <Typography variant="h6" component="div" color="primary">
             Off The Battlefield
           </Typography>
+
+          <div className="flex space-x-8 grow ml-12">
+            <NavBarButton label="Home" />
+            <NavBarButton label="Chapters" />
+            <NavBarButton label="Get Involved" />
+            <NavBarButton label="Donate" />
+          </div>
           <button className="text-custom-1">Login</button>
         </Toolbar>
       </div>

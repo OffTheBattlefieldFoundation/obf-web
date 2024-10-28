@@ -1,0 +1,12 @@
+.mybutton {
+  background-position: right;
+  background-size: 200%;
+  transition: 0.2s ease-out;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mybutton:hover {
+  background-position: left;
+}
