@@ -1,10 +1,9 @@
 import { stripe } from '@/lib/stripe'
 
 import { NextResponse } from 'next/server'
-import { NextApiRequest } from 'next'
 
 // Retrieve Checkout Session Information
-export async function GET(req: NextApiRequest) {
+export async function GET(req: Request) {
   try {
     const search = new URL(req.url ?? '').search
     const urlParams = new URLSearchParams(search)
