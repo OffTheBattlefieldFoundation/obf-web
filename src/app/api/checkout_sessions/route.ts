@@ -35,13 +35,12 @@ export async function POST() {
         {
           // Provide the exact Price ID (for example, pr_1234) of
           // the product you want to sell
-          price: 'price_1Q83qRDZOH5WrnPPVgqAoFcq',
+          price: process.env.STRIPE_PRICE_ID ?? '',
           quantity: 1,
         },
       ],
       mode: 'payment',
-      return_url:
-        'http://localhost:3000/return?session_id={CHECKOUT_SESSION_ID}',
+      return_url: getPath() + '/return?session_id={CHECKOUT_SESSION_ID}',
     })
 
     return NextResponse.json({ clientSecret: session.client_secret })
@@ -50,4 +49,10 @@ export async function POST() {
       return NextResponse.json(err.message, { status: err.statusCode || 500 })
     }
   }
+}
+
+function getPath() {
+  return process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://offthebattlefieldfoundation.netlify.app'
 }
