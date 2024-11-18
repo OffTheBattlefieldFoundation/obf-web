@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Mission from '@/components/Mission'
 import HomePageBanner from '@/components/HomePageBanner'
+import Gallery from '@/components/Gallery'
 
 export default function Home() {
   return (
@@ -18,6 +19,8 @@ export default function Home() {
 
       <main>
         <Mission />
+
+        <Gallery />
       </main>
 
       <footer>

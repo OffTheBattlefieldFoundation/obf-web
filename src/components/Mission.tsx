@@ -7,7 +7,7 @@ export default function Mission() {
         <h2 className="text-4xl font-bold text-lime-950">
           Our Mission Statement
         </h2>
-        <p className="text-lime-950" style={{ width: 700 }}>
+        <p className="text-center text-lime-950" style={{ width: 700 }}>
           We are a 501(c)(3) nonprofit committed to the task of restoring and
           supporting communities devasted by conflict. Our first mission: is to
           bridge the gap between veterans of war and compassionate companions

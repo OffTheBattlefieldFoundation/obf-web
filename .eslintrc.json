@@ -3,6 +3,7 @@
   "rules": {
     "import/no-unused-modules": "warn",
     "no-console": "warn",
-    "@typescript-eslint/no-explicit-any": "off"
+    "@typescript-eslint/no-explicit-any": "off",
+    "@next/next/no-img-element": "off"
   }
 }
