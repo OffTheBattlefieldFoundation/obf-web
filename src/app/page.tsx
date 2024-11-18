@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Mission from '@/components/Mission'
+import HomePageBanner from '@/components/HomePageBanner'
 
 export default function Home() {
   return (
-    <div className="p-24">
+    <div>
       <Head>
         <title>Off the Battlefield - Home</title>
         <meta
@@ -13,27 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
-        <h1>Welcome to Off the Battlefield</h1>
-        <p>Connecting veterans with the support of their communities.</p>
-      </header>
+      <HomePageBanner />
 
       <main>
-        <p>
-          At Off the Battlefield, our mission is to bridge the gap between
-          veterans and compassionate companions who can offer support and
-          friendship. Explore our site to learn more about our initiatives and
-          how you can get involved.
-        </p>
-
-        <Mission />
-        <Mission />
-        <Mission />
-        <Mission />
-        <Mission />
-        <Mission />
-        <Mission />
-        <Mission />
         <Mission />
       </main>
 

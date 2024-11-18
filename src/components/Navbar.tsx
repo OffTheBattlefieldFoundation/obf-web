@@ -18,7 +18,7 @@ export default function MyNavbar() {
       className={trigger ? 'bg-lime-50' : 'bg-lime-25'}
       elevation={trigger ? 1 : 0}
     >
-      <div className={`${trigger ? 'py-2' : 'pt-8'} px-16 transition-all`}>
+      <div className={`${trigger ? 'py-2' : 'py-8'} px-16 transition-all`}>
         <Toolbar>
           <Image
             className="inline"
