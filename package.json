@@ -22,7 +22,8 @@
     "react": "^18",
     "react-dom": "^18",
     "stripe": "^17.2.1",
-    "swiper": "^11.1.14"
+    "swiper": "^11.1.14",
+    "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
     "@types/node": "^20",

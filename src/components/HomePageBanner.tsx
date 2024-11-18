@@ -1,4 +1,6 @@
+'use client'
 import React from 'react'
+import Typewriter from 'typewriter-effect'
 
 export default function HomePageBanner() {
   return (
@@ -8,7 +10,16 @@ export default function HomePageBanner() {
           Off The Battlefield Foundation
         </h1>
         <h2 className="text-2xl text-lime-950">
-          Changing the World, One Conversation at a Time.
+          <div style={{ height: '1em' }}>
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter
+                  .changeDelay(80)
+                  .typeString('Changing the World, One Conversation at a Time.')
+                  .start()
+              }}
+            />
+          </div>
         </h2>
       </div>
     </div>
