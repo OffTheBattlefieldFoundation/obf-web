@@ -23,7 +23,7 @@ export default function App() {
   const options = { fetchClientSecret }
 
   return (
-    <div className='pt-12'>
+    <div className="pt-12">
       <EmbeddedCheckoutProvider stripe={stripePromise} options={options}>
         <EmbeddedCheckout />
       </EmbeddedCheckoutProvider>

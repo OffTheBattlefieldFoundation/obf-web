@@ -27,7 +27,7 @@ export default function Return() {
 
   if (status === 'complete') {
     return (
-      <section className='pt-24'>
+      <section className="pt-24">
         <p>
           We appreciate your business! A confirmation email will be sent to{' '}
           {customerEmail}. If you have any questions, please email{' '}
