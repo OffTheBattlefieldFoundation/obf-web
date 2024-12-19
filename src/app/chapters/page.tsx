@@ -1,7 +1,38 @@
+'use client'
+
 import Head from 'next/head'
-import Link from 'next/link'
+import ChapterButton from '@/components/ChapterButton'
+import { useState } from 'react'
 
 export default function Home() {
+  const chapters = [
+    // Template for adding a new chapter button.
+    // href: URL to redirect the user when the button is clicked.
+    // imgSrc: Path to the chapter logo image.
+    // altText: Description for the logo image (for accessibility and tooltips).
+    // title: Text displayed below the logo.
+    {
+      href: '/chapters/uf',
+      imgSrc: '/uf_logo.png',
+      altText: 'University of Florida Logo',
+      title: 'University of Florida',
+    },
+    {
+      href: '/chapters/ucf',
+      imgSrc: '/ucf_logo.png',
+      altText: 'University of Central Florida Logo',
+      title: 'University of Central Florida',
+    },
+    {
+      href: 'https://forms.gle/AYU1hvrr7vmy9fAB9',
+      imgSrc: '/add_logo.png',
+      altText: 'Create a New Chapter Logo',
+      title: 'Create a New Chapter',
+    },
+  ]
+
+  const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null)
+
   return (
     <div>
       <Head>
@@ -14,7 +45,7 @@ export default function Home() {
       </Head>
 
       <main>
-        {/* Centered Responsive Grid Layout */}
+        {/* Main section with a responsive grid layout for chapter buttons */}
         <div
           style={{
             display: 'flex',
@@ -33,118 +64,34 @@ export default function Home() {
               width: '100%',
             }}
           >
-            {/* Image 1 */}
-            <Link href="/chapters/uf" legacyBehavior>
-              <a
+            {/* Render chapter buttons dynamically based on the chapters array */}
+            {chapters.map((chapter, index) => (
+              <div
+                key={index}
                 style={{
+                  border: '1px solid #ddd',
+                  borderRadius: '12px',
+                  padding: '20px',
+                  boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
                   textAlign: 'center',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
+                  backgroundColor:
+                    hoveredCardIndex === index ? '#d9f99d' : '#ffffff', // lime-100
+                  transform:
+                    hoveredCardIndex === index ? 'scale(1.02)' : 'scale(1)',
+                  transition: 'background-color 0.3s ease, transform 0.2s ease',
                 }}
+                onMouseEnter={() => setHoveredCardIndex(index)}
+                onMouseLeave={() => setHoveredCardIndex(null)}
               >
-                <div
-                  style={{
-                    width: '200px',
-                    height: '200px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <img
-                    src="/uf_logo.png"
-                    alt="University of Florida Logo"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      objectFit: 'contain',
-                      cursor: 'pointer',
-                    }}
-                  />
-                </div>
-                <p style={{ marginTop: '8px', fontSize: '16px', fontWeight: 'bold' }}>
-                  University of Florida
-                </p>
-              </a>
-            </Link>
-
-            {/* Image 2 */}
-            <Link href="/chapters/ucf" legacyBehavior>
-              <a
-                style={{
-                  textAlign: 'center',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    width: '200px',
-                    height: '200px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <img
-                    src="/ucf_logo.png"
-                    alt="University of Central Florida Logo"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      objectFit: 'contain',
-                      cursor: 'pointer',
-                    }}
-                  />
-                </div>
-                <p style={{ marginTop: '8px', fontSize: '16px', fontWeight: 'bold' }}>
-                  University of Central Florida
-                </p>
-              </a>
-            </Link>
-
-            {/* Image 3 */}
-            <Link href="https://forms.gle/AYU1hvrr7vmy9fAB9" legacyBehavior>
-              <a
-                style={{
-                  textAlign: 'center',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                }}
-              >
-                <div
-                  style={{
-                    width: '200px',
-                    height: '200px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <img
-                    src="/add_logo.png"
-                    alt="Create a New Chapter Logo"
-                    style={{
-                      maxWidth: '100%',
-                      maxHeight: '100%',
-                      objectFit: 'contain',
-                      cursor: 'pointer',
-                    }}
-                  />
-                </div>
-                <p style={{ marginTop: '8px', fontSize: '16px', fontWeight: 'bold' }}>
-                  Create a New Chapter
-                </p>
-              </a>
-            </Link>
+                <ChapterButton data={chapter} />
+              </div>
+            ))}
           </div>
         </div>
       </main>
 
       <footer>
+        {/* Footer with copyright information */}
         <p>Off the Battlefield &copy; {new Date().getFullYear()}</p>
       </footer>
     </div>
