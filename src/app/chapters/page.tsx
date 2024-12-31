@@ -24,7 +24,7 @@ export default function Home() {
       title: 'University of Central Florida',
     },
     {
-      href: 'https://forms.gle/AYU1hvrr7vmy9fAB9',
+      href: 'https://docs.google.com/forms/d/e/1FAIpQLSf-u4SOEj789A7rxFc3W8N53iYcbu6u_IeACqt7-i8waQezGw/viewform',
       imgSrc: '/add_logo.png',
       altText: 'Create a New Chapter Logo',
       title: 'Create a New Chapter',
