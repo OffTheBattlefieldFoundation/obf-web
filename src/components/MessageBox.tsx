@@ -4,6 +4,7 @@ const MessageBox = () => {
   const [email, setEmail] = useState('');
   const [title, setTitle] = useState('');
   const [message, setMessage] = useState('');
+  const [isHovered, setIsHovered] = useState(false); // Track hover state
 
   const handleSend = () => {
     if (!email || !title || !message) {
@@ -49,7 +50,17 @@ const MessageBox = () => {
           style={styles.textarea}
         ></textarea>
       </div>
-      <button onClick={handleSend} style={styles.button}>Send</button>
+      <button
+        onClick={handleSend}
+        style={{
+          ...styles.button,
+          ...(isHovered ? styles.buttonHover : {}),
+        }}
+        onMouseEnter={() => setIsHovered(true)} // Set hover state to true
+        onMouseLeave={() => setIsHovered(false)} // Set hover state to false
+      >
+        Send
+      </button>
     </div>
   );
 };
@@ -89,7 +100,6 @@ const styles = {
   button: {
     padding: '10px 20px',
     fontSize: '16px',
-    border: '2px solid #28a745',
     borderRadius: '4px',
     cursor: 'pointer',
     position: 'relative',
@@ -98,8 +108,8 @@ const styles = {
     transition: 'background-color 0.5s ease, box-shadow 0.5s ease',
   },
   buttonHover: {
-    backgroundPosition: 'left',
-  }
+    backgroundColor: '#32cd32', // Brighter lime green
+  },
 };
 
 export default MessageBox;
