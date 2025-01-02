@@ -36,6 +36,7 @@ export default function MyNavbar() {
             <NavBarButton label="Chapters" href="/chapters" />
             <NavBarButton label="Get Involved" href="/getinvolved" />
             <NavBarButton label="Donate" href="/donate" />
+            <NavBarButton label="Contact Us" href="/contactus" />
           </div>
         </Toolbar>
       </div>
