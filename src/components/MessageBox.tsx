@@ -12,7 +12,6 @@ const MessageBox = () => {
       return;
     }
 
-    console.log('Message sent:', { email, title, message });
     alert('Message sent successfully!');
 
     // Clear fields after sending
