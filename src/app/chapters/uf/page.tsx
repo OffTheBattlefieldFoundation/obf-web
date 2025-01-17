@@ -1,5 +1,3 @@
-'use client'
-
 import Head from 'next/head'
 import VideoPlayer from '@/components/VideoPlayer'
 
