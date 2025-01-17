@@ -1,47 +1,43 @@
-'use client'
-
-import { useEffect, useRef, useState } from 'react'
-
 // Define TypeScript types for the props
 interface VideoSettings {
-  src: string
-  type: string
-  autoPlay: boolean
-  loop: boolean
-  muted: boolean
-  width: string
-  height: string
-  borderRadius: string
-  borderColor: string
-  borderWidth: string
-  poster?: string | null
+  src: string;
+  type: string;
+  autoPlay: boolean;
+  loop: boolean;
+  muted: boolean;
+  width: string;
+  height: string;
+  borderRadius: string;
+  borderColor: string;
+  borderWidth: string;
+  poster?: string | null;
 }
 
 interface OverlaySettings {
-  backgroundColor: string
-  borderColor: string
-  borderRadius: string
-  borderWidth: string
-  padding: string
-  boxShadow: string
-  text: string
-  textColor: string
-  fontSize: string
-  fontWeight: string
+  backgroundColor: string;
+  borderColor: string;
+  borderRadius: string;
+  borderWidth: string;
+  padding: string;
+  boxShadow: string;
+  text: string;
+  textColor: string;
+  fontSize: string;
+  fontWeight: string;
 }
 
 interface LogoSettings {
-  src: string
-  alt: string
-  height: string
-  marginRight: string
+  src: string;
+  alt: string;
+  height: string;
+  marginRight: string;
 }
 
 // Props for the VideoPlayer component
 interface VideoPlayerProps {
-  videoSettings: VideoSettings
-  overlaySettings: OverlaySettings
-  logoSettings: LogoSettings
+  videoSettings: VideoSettings;
+  overlaySettings: OverlaySettings;
+  logoSettings: LogoSettings;
 }
 
 export default function VideoPlayer({
@@ -49,44 +45,7 @@ export default function VideoPlayer({
   overlaySettings,
   logoSettings,
 }: VideoPlayerProps) {
-  const videoRef = useRef<HTMLVideoElement | null>(null)
-  const [posterUrl, setPosterUrl] = useState<string | null>(
-    videoSettings.poster || null,
-  )
-
-  useEffect(() => {
-    const capturePosterFrame = async () => {
-      if (!videoSettings.poster && videoRef.current) {
-        const video = videoRef.current
-
-        // Wait for the video metadata to load
-        await new Promise((resolve) => {
-          video.addEventListener('loadeddata', resolve, { once: true })
-        })
-
-        // Seek to the first second
-        video.currentTime = 1
-
-        // Wait for the frame to render
-        await new Promise((resolve) => {
-          video.addEventListener('seeked', resolve, { once: true })
-        })
-
-        // Capture the frame into a canvas
-        const canvas = document.createElement('canvas')
-        canvas.width = video.videoWidth
-        canvas.height = video.videoHeight
-        const ctx = canvas.getContext('2d')
-        if (ctx) ctx.drawImage(video, 0, 0, canvas.width, canvas.height)
-
-        // Generate a data URL for the poster
-        const posterDataUrl = canvas.toDataURL('image/jpeg')
-        setPosterUrl(posterDataUrl)
-      }
-    }
-
-    capturePosterFrame()
-  }, [videoSettings.poster])
+  const posterUrl = videoSettings.poster || null;
 
   return (
     <div
@@ -98,7 +57,6 @@ export default function VideoPlayer({
       }}
     >
       <video
-        ref={videoRef}
         autoPlay={videoSettings.autoPlay}
         loop={videoSettings.loop}
         muted={videoSettings.muted}
@@ -146,5 +104,5 @@ export default function VideoPlayer({
         {overlaySettings.text}
       </div>
     </div>
-  )
+  );
 }
