@@ -1,43 +1,43 @@
 // Define TypeScript types for the props
 interface VideoSettings {
-  src: string;
-  type: string;
-  autoPlay: boolean;
-  loop: boolean;
-  muted: boolean;
-  width: string;
-  height: string;
-  borderRadius: string;
-  borderColor: string;
-  borderWidth: string;
-  poster?: string | null;
+  src: string
+  type: string
+  autoPlay: boolean
+  loop: boolean
+  muted: boolean
+  width: string
+  height: string
+  borderRadius: string
+  borderColor: string
+  borderWidth: string
+  poster?: string | null
 }
 
 interface OverlaySettings {
-  backgroundColor: string;
-  borderColor: string;
-  borderRadius: string;
-  borderWidth: string;
-  padding: string;
-  boxShadow: string;
-  text: string;
-  textColor: string;
-  fontSize: string;
-  fontWeight: string;
+  backgroundColor: string
+  borderColor: string
+  borderRadius: string
+  borderWidth: string
+  padding: string
+  boxShadow: string
+  text: string
+  textColor: string
+  fontSize: string
+  fontWeight: string
 }
 
 interface LogoSettings {
-  src: string;
-  alt: string;
-  height: string;
-  marginRight: string;
+  src: string
+  alt: string
+  height: string
+  marginRight: string
 }
 
 // Props for the VideoPlayer component
 interface VideoPlayerProps {
-  videoSettings: VideoSettings;
-  overlaySettings: OverlaySettings;
-  logoSettings: LogoSettings;
+  videoSettings: VideoSettings
+  overlaySettings: OverlaySettings
+  logoSettings: LogoSettings
 }
 
 export default function VideoPlayer({
@@ -45,7 +45,7 @@ export default function VideoPlayer({
   overlaySettings,
   logoSettings,
 }: VideoPlayerProps) {
-  const posterUrl = videoSettings.poster || null;
+  const posterUrl = videoSettings.poster || null
 
   return (
     <div
@@ -104,5 +104,5 @@ export default function VideoPlayer({
         {overlaySettings.text}
       </div>
     </div>
-  );
+  )
 }
