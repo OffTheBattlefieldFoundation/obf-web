@@ -28,7 +28,7 @@ export default function MyNavbar() {
             height="48"
           />
           <Typography variant="h6" component="div" color="primary">
-            Off The Battlefield
+            Off the Battlefield Foundation
           </Typography>
 
           <div className="flex space-x-8 ml-12">
