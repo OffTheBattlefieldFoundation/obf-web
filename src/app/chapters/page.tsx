@@ -1,6 +1,5 @@
 'use client'
 
-import Head from 'next/head'
 import ChapterButton from '@/components/ChapterButton'
 import { useState } from 'react'
 
@@ -35,15 +34,6 @@ export default function Home() {
 
   return (
     <div>
-      <Head>
-        <title>Off the Battlefield - Chapters</title>
-        <meta
-          name="description"
-          content="Helping veterans connect with compassionate companions."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <main>
         {/* Main section with a responsive grid layout for chapter buttons */}
         <div
