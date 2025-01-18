@@ -1,6 +1,6 @@
 export const metadata = {
   title: 'Off the Battlefield Foundation - Research',
-  description: 'Changing the World, One Conversation at a Time.',
+  description: 'Helping veterans connect with compassionate companions.',
 }
 
 export default function Home() {
