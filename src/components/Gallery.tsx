@@ -41,9 +41,6 @@ export default function Gallery() {
             alt="Mikhail and Gainesville Mayor"
           />
         </SwiperSlide>
-        <SwiperSlide>
-          <img src="/URI-Logo.png" alt="URI Logo" />
-        </SwiperSlide>
       </Swiper>
     </div>
   )
