@@ -28,13 +28,13 @@ export default function MyNavbar() {
             height="48"
           />
           <Typography variant="h6" component="div" color="primary">
-            Off The Battlefield
+            Off the Battlefield Foundation
           </Typography>
 
           <div className="flex space-x-8 ml-12">
             <NavBarButton label="Home" href="/" />
             <NavBarButton label="Chapters" href="/chapters" />
-            <NavBarButton label="Get Involved" href="/getinvolved" />
+            <NavBarButton label="Research" href="/research" />
             <NavBarButton label="Donate" href="/donate" />
           </div>
         </Toolbar>

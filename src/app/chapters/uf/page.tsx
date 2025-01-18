@@ -1,5 +1,9 @@
-import Head from 'next/head'
 import VideoPlayer from '@/components/VideoPlayer'
+
+export const metadata = {
+  title: 'Off the Battlefield Foundation - University of Florida Chapter',
+  description: 'Helping veterans connect with compassionate companions.',
+}
 
 export default function Home() {
   const settings = {
@@ -38,10 +42,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <meta name="description" content="A webpage with a video player" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Head>
       <main style={{ margin: 0, padding: 0 }}>
         <div style={{ margin: '20px 0', padding: '5%' }}>
           <VideoPlayer
