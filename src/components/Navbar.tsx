@@ -34,7 +34,6 @@ export default function MyNavbar() {
           <div className="flex space-x-8 ml-12">
             <NavBarButton label="Home" href="/" />
             <NavBarButton label="Chapters" href="/chapters" />
-            <NavBarButton label="Get Involved" href="/getinvolved" />
             <NavBarButton label="Donate" href="/donate" />
           </div>
         </Toolbar>
