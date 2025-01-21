@@ -1,12 +1,12 @@
 interface Item {
-  title: string;
-  message: string;
+  title: string
+  message: string
 }
 
 interface ContentSectionProps {
-  descriptionStyles: React.CSSProperties;
-  items: Item[];
-  chapterName: string;
+  descriptionStyles: React.CSSProperties
+  items: Item[]
+  chapterName: string
 }
 
 export default function ContentSection({
@@ -44,30 +44,30 @@ export default function ContentSection({
         `}
       </style>
 
-      <div style={{ margin: "1% 40% 0% 5%", ...descriptionStyles }}>
-        <span style={{ color: "green" }}>#</span>&nbsp;Welcome to {chapterName}
+      <div style={{ margin: '1% 40% 0% 5%', ...descriptionStyles }}>
+        <span style={{ color: 'green' }}>#</span>&nbsp;Welcome to {chapterName}
       </div>
 
       <div
         style={{
-          margin: "1% 35% 5% 5%",
-          flexDirection: "column",
-          alignItems: "flex-start",
+          margin: '1% 35% 5% 5%',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
           ...descriptionStyles,
         }}
       >
-        <span style={{ color: "#282F34", fontSize: 32 }}>
+        <span style={{ color: '#282F34', fontSize: 32 }}>
           Why You Should Join Us:
         </span>
-        <span style={{ color: "#2EB872", fontSize: 32 }}>
+        <span style={{ color: '#2EB872', fontSize: 32 }}>
           &nbsp;The Ukraine Rebuilding Initiative
         </span>
         <p
           style={{
-            color: "#282F34",
+            color: '#282F34',
             fontSize: 16,
-            marginTop: "10px",
-            fontWeight: "normal",
+            marginTop: '10px',
+            fontWeight: 'normal',
           }}
         >
           The initiative is structured around five key division-based projects,
@@ -75,7 +75,7 @@ export default function ContentSection({
           Ukraine.
         </p>
 
-        <div style={{ marginTop: "20px" }}>
+        <div style={{ marginTop: '20px' }}>
           {items.map((item, index) => (
             <details
               key={index}
@@ -89,18 +89,18 @@ export default function ContentSection({
                   src="/greenmark.png"
                   alt="green mark"
                   style={{
-                    width: "3%",
-                    height: "3%",
-                    marginRight: "10px",
+                    width: '3%',
+                    height: '3%',
+                    marginRight: '10px',
                   }}
                 />
                 {item.title}
               </summary>
               <p
                 style={{
-                  marginTop: "10px",
-                  color: "#555",
-                  fontWeight: "normal",
+                  marginTop: '10px',
+                  color: '#555',
+                  fontWeight: 'normal',
                   fontSize: 16,
                 }}
               >
@@ -111,5 +111,5 @@ export default function ContentSection({
         </div>
       </div>
     </>
-  );
+  )
 }
