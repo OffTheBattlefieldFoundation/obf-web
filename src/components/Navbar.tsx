@@ -6,6 +6,9 @@ import Typography from '@mui/material/Typography'
 import Image from 'next/image'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
 import NavBarButton from '@/components/NavbarButton'
+import { Philosopher } from 'next/font/google'
+
+const philosopher = Philosopher({ weight: '400', subsets: ['latin'] })
 
 export default function MyNavbar() {
   const trigger = useScrollTrigger({
@@ -27,7 +30,12 @@ export default function MyNavbar() {
             width="48"
             height="48"
           />
-          <Typography variant="h6" component="div" color="primary">
+          <Typography
+            className={philosopher.className}
+            variant="h5"
+            component="div"
+            color="primary"
+          >
             Off the Battlefield Foundation
           </Typography>
 
