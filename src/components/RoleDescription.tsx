@@ -71,15 +71,15 @@ export default function ContentSection({
                   listStyle: 'none',
                 }}
               >
-                <span
+                <img
+                  src="/greenmark.png"
+                  alt="green mark"
                   style={{
-                    color: '#2EB872',
-                    fontSize: '18px',
+                    width: '3%',
+                    height: '3%',
                     marginRight: '10px',
                   }}
-                >
-                  ✓⃝
-                </span>
+                />
                 {item.title}
               </summary>
               <p
