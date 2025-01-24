@@ -1,7 +1,7 @@
-'use client';
+'use client'
 
-import Head from 'next/head';
-import MessageBox from '@/components/MessageBox'; // Import the MessageBox component
+import Head from 'next/head'
+import MessageBox from '@/components/MessageBox' // Import the MessageBox component
 
 export default function ContactUsPage() {
   return (
@@ -28,9 +28,15 @@ export default function ContactUsPage() {
           }}
         >
           {/* Apply white background directly to the MessageBox */}
-          <MessageBox style={{ backgroundColor: 'white', padding: '20px', borderRadius: '8px' }} />
+          <MessageBox
+            style={{
+              backgroundColor: 'white',
+              padding: '20px',
+              borderRadius: '8px',
+            }}
+          />
         </div>
       </main>
     </div>
-  );
+  )
 }

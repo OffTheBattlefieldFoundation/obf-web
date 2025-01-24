@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 
 const MessageBox = () => {
-  const [email, setEmail] = useState('');
-  const [title, setTitle] = useState('');
-  const [message, setMessage] = useState('');
-  const [isHovered, setIsHovered] = useState(false); // Track hover state
+  const [email, setEmail] = useState('')
+  const [title, setTitle] = useState('')
+  const [message, setMessage] = useState('')
+  const [isHovered, setIsHovered] = useState(false) // Track hover state
 
   const handleSend = () => {
     if (!email || !title || !message) {
-      alert('Please fill out all fields before sending.');
-      return;
+      alert('Please fill out all fields before sending.')
+      return
     }
 
-    alert('Message sent successfully!');
+    alert('Message sent successfully!')
 
     // Clear fields after sending
-    setEmail('');
-    setTitle('');
-    setMessage('');
-  };
+    setEmail('')
+    setTitle('')
+    setMessage('')
+  }
 
   return (
     <div style={styles.container}>
@@ -61,8 +61,8 @@ const MessageBox = () => {
         Send
       </button>
     </div>
-  );
-};
+  )
+}
 
 const styles = {
   container: {
@@ -109,6 +109,6 @@ const styles = {
   buttonHover: {
     backgroundColor: '#32cd32', // Brighter lime green
   },
-};
+}
 
-export default MessageBox;
+export default MessageBox
