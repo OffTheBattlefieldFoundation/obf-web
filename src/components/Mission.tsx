@@ -3,19 +3,17 @@ import React from 'react'
 export default function Mission() {
   return (
     <div style={{ width: '100%', height: 700 }}>
-      <div className="flex flex-col items-center justify-center h-full">
-        <h2 className="text-4xl font-bold text-lime-950">
-          Our Mission Statement
-        </h2>
-        <p className="text-center text-lime-950" style={{ width: 700 }}>
-          We are a 501(c)(3) nonprofit committed to the task of restoring and
-          supporting communities devasted by conflict. Our first mission: is to
-          bridge the gap between veterans of war and compassionate companions
-          worldwide, fostering bonds of understanding, support, and cultural
-          exchange. Through our innovative programs, we strive to enhance the
-          mental well-being of veterans by providing them with dedicated
-          companionship while empowering students to make a positive impact in
-          their communities and beyond.
+      <div className="flex flex-col items-center justify-center h-full text-lime-950">
+        <h2 className="text-4xl font-bold">Our Mission Statement</h2>
+        <p className="text-center" style={{ width: 700 }}>
+          The Off the Battlefield Foundation is a 501(c)(3) nonprofit
+          organization dedicated to rebuilding and healing communities affected
+          by conflict. Through innovative programs, we foster resilience,
+          promote collaboration, and support sustainable development in regions
+          striving for recovery. Our first project is called the Ukraine
+          Rebuilding Initiative (URI), which is housed in our two main
+          university chapters at the University of Florida (UF) and the
+          University of Central Florida (UCF).
         </p>
       </div>
     </div>
