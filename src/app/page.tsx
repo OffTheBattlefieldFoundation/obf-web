@@ -17,7 +17,7 @@ export default function Home() {
       </main>
 
       <footer>
-        <p>Off the Battlefield © {new Date().getFullYear()}</p>
+        <p>Off the Battlefield Foundation ©{new Date().getFullYear()}</p>
       </footer>
     </div>
   )

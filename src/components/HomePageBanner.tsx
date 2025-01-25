@@ -7,7 +7,7 @@ export default function HomePageBanner() {
     <div className="bg-lime-100" style={{ width: '100%', height: 700 }}>
       <div className="flex flex-col items-center justify-center h-full">
         <h1 className="text-4xl font-bold text-lime-950">
-          Off The Battlefield Foundation
+          Off the Battlefield Foundation
         </h1>
         <h2 className="text-2xl text-lime-950">
           <div style={{ height: '1em' }}>
