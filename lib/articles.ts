@@ -6,7 +6,7 @@ import html from 'remark-html'
 
 const articlesDir = path.join(process.cwd(), 'articles')
 
-interface ArticleMetaData {
+export interface ArticleMetaData {
   id: string
   title: string
   date: string
@@ -16,7 +16,7 @@ interface ArticleData extends ArticleMetaData {
   contentHtml: string
 }
 
-export function getSortedArticlesData(): ArticleMetaData[] {
+export function getSortedArticlesMetaData(): ArticleMetaData[] {
   // Get file names under /articles
   const fileNames = fs.readdirSync(articlesDir)
   const allArticlesMetaData = fileNames.map((fileName) => {

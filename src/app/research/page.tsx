@@ -1,6 +1,6 @@
-import Link from 'next/link'
+import ResearchItem from '@/components/ResearchItem'
 
-import { getSortedArticlesData } from '../../../lib/articles'
+import { getSortedArticlesMetaData } from '../../../lib/articles'
 
 export const metadata = {
   title: 'Off the Battlefield Foundation - Research',
@@ -8,19 +8,15 @@ export const metadata = {
 }
 
 export default function ResearchPage() {
-  const allArticlesData = getSortedArticlesData()
+  const allArticlesMetaData = getSortedArticlesMetaData()
 
   return (
     <main className="pt-8 container mx-auto flex flex-col items-center">
       <ul>
-        {allArticlesData.map(({ id, date, title }) => (
-          <li key={id}>
-            <Link href={`/research/${id}`}>{title}</Link>
-            <br />
-            {id}
-            <br />
-            {date}
-          </li>
+        {allArticlesMetaData.map((articleMetaData, i) => (
+          <div key={i} className="mb-24">
+            <ResearchItem articleMetaData={articleMetaData} />
+          </div>
         ))}
       </ul>
     </main>
