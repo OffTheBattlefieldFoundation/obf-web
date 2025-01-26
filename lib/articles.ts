@@ -49,19 +49,6 @@ export function getSortedArticlesMetaData(): ArticleMetaData[] {
 export function getAllArticleIds() {
   const fileNames = fs.readdirSync(articlesDir)
 
-  // Returns an array that looks like this:
-  // [
-  //   {
-  //     params: {
-  //       id: 'ssg-ssr'
-  //     }
-  //   },
-  //   {
-  //     params: {
-  //       id: 'pre-rendering'
-  //     }
-  //   }
-  // ]
   return fileNames.map((fileName) => {
     return {
       id: fileName.replace(/\.md$/, ''),
