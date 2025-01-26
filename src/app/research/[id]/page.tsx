@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 import {
-  // getAllArticleIds,
+  getAllArticleIds,
   getArticleData,
   getArticleMetaData,
 } from '../../../../lib/articles'
@@ -50,12 +50,6 @@ export default async function Page({
   )
 }
 
-// TODO: App does not build with this. Need to figure out how to get static paths working in app router. This component is currently using server-side rendering
-// export async function getStaticPaths() {
-//   // Return a list of possible values for id
-//   const paths = getAllArticleIds()
-//   return {
-//     paths,
-//     fallback: false,
-//   }
-// }
+export function generateStaticParams() {
+  return getAllArticleIds()
+}
