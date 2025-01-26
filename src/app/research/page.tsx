@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import { getSortedArticlesData } from '../../../lib/articles'
 
 export const metadata = {
@@ -13,7 +15,7 @@ export default function ResearchPage() {
       <ul>
         {allArticlesData.map(({ id, date, title }) => (
           <li key={id}>
-            {title}
+            <Link href={`/research/${id}`}>{title}</Link>
             <br />
             {id}
             <br />
