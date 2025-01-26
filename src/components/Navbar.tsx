@@ -24,6 +24,7 @@ export default function MyNavbar() {
       <div className={`${trigger ? 'py-2' : 'py-8'} px-16 transition-all`}>
         <Toolbar>
           <Image
+            priority
             className="inline"
             src="/logo.png"
             alt="logo"
