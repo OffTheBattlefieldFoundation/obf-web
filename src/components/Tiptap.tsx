@@ -6,8 +6,6 @@ import StarterKit from '@tiptap/starter-kit'
 import { Toolbar } from './ToolBar'
 import Link from '@tiptap/extension-link'
 
-import Heading from '@tiptap/extension-heading'
-
 export default function Tiptap({
   description,
   onChange,
@@ -17,11 +15,13 @@ export default function Tiptap({
 }) {
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({}),
-      Heading.configure({
-        HTMLAttributes: {
-          class: 'text-xl font-bold',
+      StarterKit.configure({
+        heading: {
           levels: [2],
+          HTMLAttributes: {
+            class: 'text-xl font-bold',
+            levels: [2],
+          },
         },
       }),
       Link.configure({
