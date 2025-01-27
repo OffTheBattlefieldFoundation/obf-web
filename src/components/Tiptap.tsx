@@ -17,10 +17,9 @@ export default function Tiptap({
     extensions: [
       StarterKit.configure({
         heading: {
-          levels: [2],
+          levels: [1, 2, 3],
           HTMLAttributes: {
-            class: 'text-xl font-bold',
-            levels: [2],
+            class: 'font-bold',
           },
         },
       }),
@@ -114,7 +113,22 @@ export default function Tiptap({
   return (
     <div className="flex flex-col justify-stretch min-h-[250px]">
       <Toolbar editor={editor} />
-      <EditorContent editor={editor} />
+      <div className="mt-4">
+        <style>
+          {`
+            h1 {
+              font-size: 1.75rem;
+            }
+            h2 {
+              font-size: 1.5rem;
+            }
+            h3 {
+              font-size: 1.25rem;
+            }
+          `}
+        </style>
+        <EditorContent editor={editor} />
+      </div>
     </div>
   )
 }

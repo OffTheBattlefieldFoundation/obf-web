@@ -8,7 +8,9 @@ import {
   Italic,
   List,
   ListOrdered,
+  Heading1,
   Heading2,
+  Heading3,
 } from 'lucide-react'
 
 import { Toggle } from './ui/toggle'
@@ -55,15 +57,35 @@ export function Toolbar({ editor }: Props) {
   }
 
   return (
-    <div className="border border-input bg-transparent rounded-md">
+    <div className="p-4 flex space-x-2 border border-input bg-transparent rounded-md">
       <Toggle
         size="sm"
-        pressed={editor.isActive('heading')}
+        pressed={editor.isActive('heading', { level: 1 })}
+        onPressedChange={() =>
+          editor.chain().focus().toggleHeading({ level: 1 }).run()
+        }
+      >
+        <Heading1 className="h-4 w-4" />
+      </Toggle>
+
+      <Toggle
+        size="sm"
+        pressed={editor.isActive('heading', { level: 2 })}
         onPressedChange={() =>
           editor.chain().focus().toggleHeading({ level: 2 }).run()
         }
       >
         <Heading2 className="h-4 w-4" />
+      </Toggle>
+
+      <Toggle
+        size="sm"
+        pressed={editor.isActive('heading', { level: 3 })}
+        onPressedChange={() =>
+          editor.chain().focus().toggleHeading({ level: 3 }).run()
+        }
+      >
+        <Heading3 className="h-4 w-4" />
       </Toggle>
 
       <Toggle
