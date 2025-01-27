@@ -1,4 +1,7 @@
+import Link from 'next/link'
+
 import ResearchItem from '@/components/ResearchItem'
+import { Button } from '@/components/ui/button'
 
 import { getSortedArticlesMetaData } from '../../../lib/articles'
 
@@ -12,13 +15,15 @@ export default function ResearchPage() {
 
   return (
     <main className="pt-8 container mx-auto flex flex-col items-center">
-      <ul>
-        {allArticlesMetaData.map((articleMetaData, i) => (
-          <div key={i} className="mb-24">
-            <ResearchItem articleMetaData={articleMetaData} />
-          </div>
-        ))}
-      </ul>
+      <Button>
+        <Link href="/research/editor">Editor</Link>
+      </Button>
+
+      {allArticlesMetaData.map((articleMetaData, i) => (
+        <div key={i} className="mb-24">
+          <ResearchItem articleMetaData={articleMetaData} />
+        </div>
+      ))}
     </main>
   )
 }
