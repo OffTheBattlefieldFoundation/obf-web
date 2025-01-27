@@ -16,6 +16,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build project
+        env:
+          STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
         run: npm run build
 
   test:
