@@ -13,13 +13,39 @@ import {
   Heading3,
 } from 'lucide-react'
 
-import { Toggle } from './ui/toggle'
-
 type Props = {
   editor: Editor | null
 }
 
+function ToolButton({
+  children,
+  onClick,
+  isActive = false,
+  disabled = false,
+}: {
+  children: React.ReactNode
+  onClick: () => void
+  isActive?: boolean
+  disabled?: boolean
+}) {
+  return (
+    <>
+      <button
+        className={
+          'rounded-md p-2 transition duration-500 ' +
+          (isActive ? 'bg-lime-400' : '')
+        }
+        onClick={onClick}
+        disabled={disabled}
+      >
+        {children}
+      </button>
+    </>
+  )
+}
+
 export function Toolbar({ editor }: Props) {
+  // TODO: Create a better UI for setting links
   const setLink = useCallback(() => {
     if (!editor) {
       return
@@ -57,89 +83,73 @@ export function Toolbar({ editor }: Props) {
   }
 
   return (
-    <div className="p-4 flex space-x-2 border border-input bg-transparent rounded-md">
-      <Toggle
-        size="sm"
-        pressed={editor.isActive('heading', { level: 1 })}
-        onPressedChange={() =>
-          editor.chain().focus().toggleHeading({ level: 1 }).run()
-        }
+    <div className="p-2 flex space-x-2 border border-input bg-transparent rounded-md">
+      <ToolButton
+        isActive={editor.isActive('heading', { level: 1 })}
+        onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}
       >
         <Heading1 className="h-4 w-4" />
-      </Toggle>
+      </ToolButton>
 
-      <Toggle
-        size="sm"
-        pressed={editor.isActive('heading', { level: 2 })}
-        onPressedChange={() =>
-          editor.chain().focus().toggleHeading({ level: 2 }).run()
-        }
+      <ToolButton
+        isActive={editor.isActive('heading', { level: 2 })}
+        onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
       >
         <Heading2 className="h-4 w-4" />
-      </Toggle>
+      </ToolButton>
 
-      <Toggle
-        size="sm"
-        pressed={editor.isActive('heading', { level: 3 })}
-        onPressedChange={() =>
-          editor.chain().focus().toggleHeading({ level: 3 }).run()
-        }
+      <ToolButton
+        isActive={editor.isActive('heading', { level: 3 })}
+        onClick={() => editor.chain().focus().toggleHeading({ level: 3 }).run()}
       >
         <Heading3 className="h-4 w-4" />
-      </Toggle>
+      </ToolButton>
 
-      <Toggle
-        size="sm"
-        pressed={editor.isActive('bold')}
-        onPressedChange={() => editor.chain().focus().toggleBold().run()}
+      <ToolButton
+        isActive={editor.isActive('bold')}
+        onClick={() => editor.chain().focus().toggleBold().run()}
       >
         <Bold className="h-4 w-4" />
-      </Toggle>
+      </ToolButton>
 
-      <Toggle
-        size="sm"
-        pressed={editor.isActive('italic')}
-        onPressedChange={() => editor.chain().focus().toggleItalic().run()}
+      <ToolButton
+        isActive={editor.isActive('italic')}
+        onClick={() => editor.chain().focus().toggleItalic().run()}
       >
         <Italic className="h-4 w-4" />
-      </Toggle>
+      </ToolButton>
 
-      <Toggle
-        size="sm"
-        pressed={editor.isActive('strike')}
-        onPressedChange={() => editor.chain().focus().toggleStrike().run()}
+      <ToolButton
+        isActive={editor.isActive('strike')}
+        onClick={() => editor.chain().focus().toggleStrike().run()}
       >
         <Strikethrough className="h-4 w-4" />
-      </Toggle>
+      </ToolButton>
 
-      <Toggle
-        size="sm"
-        pressed={editor.isActive('bulletList')}
-        onPressedChange={() => editor.chain().focus().toggleBulletList().run()}
+      <ToolButton
+        isActive={editor.isActive('bulletList')}
+        onClick={() => editor.chain().focus().toggleBulletList().run()}
       >
         <List className="h-4 w-4" />
-      </Toggle>
+      </ToolButton>
 
-      <Toggle
-        size="sm"
-        pressed={editor.isActive('orderedList')}
-        onPressedChange={() => editor.chain().focus().toggleOrderedList().run()}
+      <ToolButton
+        isActive={editor.isActive('orderedList')}
+        onClick={() => editor.chain().focus().toggleOrderedList().run()}
       >
         <ListOrdered className="h-4 w-4" />
-      </Toggle>
+      </ToolButton>
 
-      <button
-        onClick={setLink}
-        className={editor.isActive('link') ? 'is-active' : ''}
-      >
-        Set link
-      </button>
-      <button
+      <ToolButton isActive={editor.isActive('link')} onClick={setLink}>
+        Set Link
+      </ToolButton>
+
+      <ToolButton
         onClick={() => editor.chain().focus().unsetLink().run()}
         disabled={!editor.isActive('link')}
       >
-        Unset link
-      </button>
+        Unset Link
+      </ToolButton>
     </div>
   )
 }
