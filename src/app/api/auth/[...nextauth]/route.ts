@@ -8,6 +8,11 @@ export const authOptions = {
       clientSecret: process.env.GITHUB_SECRET ?? '',
     }),
   ],
+  callbacks: {
+    async signIn({ user }: any) {
+      return user.email === 'alvi.abrar29@gmail.com'
+    },
+  },
 }
 
 export const handler = NextAuth(authOptions)
