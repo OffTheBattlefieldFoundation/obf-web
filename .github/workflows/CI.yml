@@ -24,6 +24,8 @@ jobs:
       - name: Build project
         env:
           STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+          GITHUB_ID: ${{ secrets.OAUTH_GITHUB_ID_LOCAL }}
+          GITHUB_SECRET: ${{ secrets.OAUTH_GITHUB_SECRET_LOCAL }}
         run: npm run build
 
   test:
