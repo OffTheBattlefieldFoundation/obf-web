@@ -1,6 +1,8 @@
 import NextAuth from 'next-auth'
 import GitHubProvider from 'next-auth/providers/github'
 
+const allowedUsers = ['AsirAAlam', 'GoodMishka']
+
 const authOptions = {
   providers: [
     GitHubProvider({
@@ -9,8 +11,8 @@ const authOptions = {
     }),
   ],
   callbacks: {
-    async signIn({ user }: any) {
-      return user.email === 'alvi.abrar29@gmail.com'
+    async signIn({ profile }: any) {
+      return allowedUsers.includes(profile.login)
     },
   },
 }
