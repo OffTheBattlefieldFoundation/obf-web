@@ -1,6 +1,7 @@
 import ResearchItem from '@/components/ResearchItem'
 
-import { getSortedArticlesMetaData } from '../../../lib/articles'
+import { getSortedArticlesMetaData } from '../../../../lib/articles'
+
 export const metadata = {
   title: 'Off the Battlefield Foundation - Research',
   description: 'Helping veterans connect with compassionate companions.',

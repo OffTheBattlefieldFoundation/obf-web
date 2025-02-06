@@ -4,7 +4,7 @@ import {
   getAllArticleIds,
   getArticleData,
   getArticleMetaData,
-} from '../../../../lib/articles'
+} from '../../../../../lib/articles'
 
 type Props = {
   params: Promise<{ id: string }>
