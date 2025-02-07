@@ -5,6 +5,9 @@ import {
   getArticleData,
   getArticleMetaData,
 } from '../../../../../lib/articles'
+import { parseISO, format } from 'date-fns'
+
+import './style.css'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -29,24 +32,16 @@ export default async function Page({
   const postData = await getArticleData(id)
 
   return (
-    <div>
-      <main>
-        {postData.title}
+    <main className="pt-16 container mx-auto">
+      <div className="text-center">
+        <h1 style={{ marginBottom: -24 }}>{postData.title}</h1>
         <br />
-        {postData.id}
+        <time>{format(parseISO(postData.date), 'LLLL d, yyyy')}</time>
         <br />
-        {postData.date}
-        <br />
+      </div>
 
-        <style>
-          {`h1 {
-          color: red;
-          }`}
-        </style>
-
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-      </main>
-    </div>
+      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+    </main>
   )
 }
 
