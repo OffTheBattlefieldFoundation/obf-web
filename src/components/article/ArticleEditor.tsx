@@ -37,6 +37,7 @@ export default function ArticleEditor() {
   })
 
   const watchTitle = form.watch('title')
+  const watchContent = form.watch('content')
 
   function onSubmit(_values: z.infer<typeof formSchema>) {
     return
@@ -51,19 +52,21 @@ export default function ArticleEditor() {
               Submit
             </Button>
           </div>
-          <FormField
-            control={form.control}
-            name="title"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Title</FormLabel>
-                <FormControl>
-                  <Input placeholder="Main title for your ..." {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="mb-4">
+            <FormField
+              control={form.control}
+              name="title"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Title</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Main title for your ..." {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           <FormField
             control={form.control}
             name="content"
@@ -73,6 +76,7 @@ export default function ArticleEditor() {
                 <FormControl>
                   <Tiptap
                     title={watchTitle}
+                    isEmpty={watchContent === '' || watchContent === '<p></p>'}
                     description={field.value}
                     onChange={field.onChange}
                   />
