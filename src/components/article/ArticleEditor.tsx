@@ -10,7 +10,7 @@ import {
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { useForm } from 'react-hook-form'
-import Tiptap from '@/components/Tiptap'
+import Tiptap from '@/components/article/Tiptap'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 
@@ -36,6 +36,8 @@ export default function ArticleEditor() {
     },
   })
 
+  const watchTitle = form.watch('title')
+
   function onSubmit(_values: z.infer<typeof formSchema>) {
     return
   }
@@ -44,6 +46,11 @@ export default function ArticleEditor() {
     <div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
+          <div className="flex justify-end">
+            <Button className="my-4" type="submit">
+              Submit
+            </Button>
+          </div>
           <FormField
             control={form.control}
             name="title"
@@ -64,16 +71,16 @@ export default function ArticleEditor() {
               <FormItem>
                 <FormLabel>Content</FormLabel>
                 <FormControl>
-                  <Tiptap description={field.value} onChange={field.onChange} />
+                  <Tiptap
+                    title={watchTitle}
+                    description={field.value}
+                    onChange={field.onChange}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-
-          <Button className="my-4" type="submit">
-            Submit
-          </Button>
         </form>
       </Form>
     </div>

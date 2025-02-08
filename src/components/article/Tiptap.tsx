@@ -6,26 +6,24 @@ import StarterKit from '@tiptap/starter-kit'
 import { Toolbar } from './ToolBar'
 import Link from '@tiptap/extension-link'
 
+import ArticleStyleWrapper from '@/components/article/ArticleStyleWrapper'
+
 export default function Tiptap({
+  title,
   description,
   onChange,
 }: {
+  title: string
   description: string
   onChange: (richText: string) => void
 }) {
+  // console.log(title)
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({
-        heading: {
-          levels: [1, 2, 3],
-          HTMLAttributes: {
-            class: 'font-bold',
-          },
-        },
-      }),
+      StarterKit.configure({}),
       Link.configure({
         HTMLAttributes: {
-          class: 'text-blue-500 hover:cursor-pointer underline',
+          // class: 'text-blue-500 hover:cursor-pointer underline',
         },
         openOnClick: true,
         autolink: true,
@@ -101,7 +99,7 @@ export default function Tiptap({
     content: description,
     editorProps: {
       attributes: {
-        class: 'p-2 rounded-md border min-h-[150px] border-input',
+        class: 'p-2 rounded-md  min-h-[150px] border-input',
       },
     },
     onUpdate({ editor }) {
@@ -114,20 +112,15 @@ export default function Tiptap({
     <div className="flex flex-col justify-stretch min-h-[250px]">
       <Toolbar editor={editor} />
       <div className="mt-4">
-        <style>
-          {`
-            h1 {
-              font-size: 1.75rem;
-            }
-            h2 {
-              font-size: 1.5rem;
-            }
-            h3 {
-              font-size: 1.25rem;
-            }
-          `}
-        </style>
-        <EditorContent editor={editor} />
+        <ArticleStyleWrapper>
+          <div className="text-center">
+            <h1 className="-mb-6">{title}</h1>
+            <br />
+            {/* <time>{format(parseISO(date), 'LLLL d, yyyy')}</time> */}
+            <br />
+          </div>
+          <EditorContent editor={editor} />
+        </ArticleStyleWrapper>
       </div>
     </div>
   )

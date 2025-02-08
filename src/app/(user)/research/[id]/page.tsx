@@ -7,7 +7,7 @@ import {
 } from '../../../../../lib/articles'
 import { parseISO, format } from 'date-fns'
 
-import './style.css'
+import ArticleStyleWrapper from '@/components/article/ArticleStyleWrapper'
 
 type Props = {
   params: Promise<{ id: string }>
@@ -34,13 +34,15 @@ export default async function Page({
   return (
     <main className="pt-16 container mx-auto">
       <div className="text-center">
-        <h1 style={{ marginBottom: -24 }}>{postData.title}</h1>
+        <h1 className="-mb-6">{postData.title}</h1>
         <br />
         <time>{format(parseISO(postData.date), 'LLLL d, yyyy')}</time>
         <br />
       </div>
 
-      <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <ArticleStyleWrapper>
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      </ArticleStyleWrapper>
     </main>
   )
 }
