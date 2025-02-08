@@ -1,4 +1,4 @@
-import ArticleEditor from '@/components/ArticleEditor'
+import ArticleEditor from '@/components/article/ArticleEditor'
 
 export const metadata = {
   title: 'Off the Battlefield Foundation - Publish',
@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function page() {
   return (
-    <div className="p-8">
+    <div className="pt-8 container mx-auto">
       <ArticleEditor />
     </div>
   )
