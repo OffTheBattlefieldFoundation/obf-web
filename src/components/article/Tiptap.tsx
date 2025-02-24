@@ -2,31 +2,29 @@
 
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
+import Placeholder from '@tiptap/extension-placeholder'
 
 import { Toolbar } from './ToolBar'
 import Link from '@tiptap/extension-link'
 
+import ArticleStyleWrapper from '@/components/article/ArticleStyleWrapper'
+
 export default function Tiptap({
+  title,
+  isEmpty,
   description,
   onChange,
 }: {
+  title: string
+  isEmpty: boolean
   description: string
   onChange: (richText: string) => void
 }) {
   const editor = useEditor({
     extensions: [
-      StarterKit.configure({
-        heading: {
-          levels: [1, 2, 3],
-          HTMLAttributes: {
-            class: 'font-bold',
-          },
-        },
-      }),
+      StarterKit.configure({}),
+      Placeholder.configure({ placeholder: 'Start typing here...' }),
       Link.configure({
-        HTMLAttributes: {
-          class: 'text-blue-500 hover:cursor-pointer underline',
-        },
         openOnClick: true,
         autolink: true,
         defaultProtocol: 'https',
@@ -101,7 +99,7 @@ export default function Tiptap({
     content: description,
     editorProps: {
       attributes: {
-        class: 'p-2 rounded-md border min-h-[150px] border-input',
+        class: 'p-2 rounded-md  min-h-[150px] border-input',
       },
     },
     onUpdate({ editor }) {
@@ -113,21 +111,31 @@ export default function Tiptap({
   return (
     <div className="flex flex-col justify-stretch min-h-[250px]">
       <Toolbar editor={editor} />
-      <div className="mt-4">
-        <style>
-          {`
-            h1 {
-              font-size: 1.75rem;
+      <div className="mt-4" spellCheck="false">
+        <ArticleStyleWrapper>
+          <style>
+            {`
+            .tiptap p.is-editor-empty:first-child::before {
+              color: #adb5bd;
+              content: attr(data-placeholder);
+              float: left;
+              height: 0;
+              pointer-events: none;
             }
-            h2 {
-              font-size: 1.5rem;
-            }
-            h3 {
-              font-size: 1.25rem;
-            }
-          `}
-        </style>
-        <EditorContent editor={editor} />
+            `}
+          </style>
+
+          <div className="text-center">
+            <h1 className="-mb-6">{title != '' ? title : 'Title'}</h1>
+            <br />
+            <time>Month DD, YYYY</time>
+            <br />
+          </div>
+          <EditorContent
+            className={isEmpty ? 'border rounded-md' : ''}
+            editor={editor}
+          />
+        </ArticleStyleWrapper>
       </div>
     </div>
   )
