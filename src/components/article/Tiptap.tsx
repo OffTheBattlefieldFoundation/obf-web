@@ -111,7 +111,7 @@ export default function Tiptap({
   return (
     <div className="flex flex-col justify-stretch min-h-[250px]">
       <Toolbar editor={editor} />
-      <div className="mt-4">
+      <div className="mt-4" spellCheck="false">
         <ArticleStyleWrapper>
           <style>
             {`
