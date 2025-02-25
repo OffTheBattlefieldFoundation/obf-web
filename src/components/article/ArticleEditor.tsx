@@ -14,24 +14,24 @@ import Tiptap from '@/components/article/Tiptap'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 
-export default function ArticleEditor() {
-  const formSchema = z.object({
-    title: z
-      .string()
-      .min(5, { message: 'Title must be at least 5 characters' }),
-    date: z.date(),
-    content: z
-      .string()
-      .min(10, { message: 'Content must be at least 10 characters' })
-      .trim(),
-  })
+const formSchema = z.object({
+  title: z.string().min(5, { message: 'Title must be at least 5 characters' }),
+  content: z.string().trim(),
+})
 
+async function onSubmit({ title, content }: z.infer<typeof formSchema>) {
+  await fetch('/api/submit_article', {
+    method: 'POST',
+    body: JSON.stringify({ title, content }),
+  })
+}
+
+export default function ArticleEditor() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     mode: 'onChange',
     defaultValues: {
       title: '',
-      date: new Date(),
       content: '',
     },
   })
@@ -39,16 +39,16 @@ export default function ArticleEditor() {
   const watchTitle = form.watch('title')
   const watchContent = form.watch('content')
 
-  function onSubmit(_values: z.infer<typeof formSchema>) {
-    return
-  }
-
   return (
     <div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="flex justify-end">
-            <Button className="my-4" type="submit">
+            <Button
+              className="my-4"
+              type="submit"
+              disabled={form.formState.isSubmitting}
+            >
               Submit
             </Button>
           </div>
