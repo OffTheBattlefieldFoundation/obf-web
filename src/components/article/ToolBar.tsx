@@ -31,6 +31,8 @@ function ToolButton({
   return (
     <>
       <button
+        // Default type inside a form is submit
+        type="button"
         className={
           'rounded-md p-2 transition duration-500 ' +
           (isActive ? 'bg-lime-400' : '')

@@ -14,12 +14,13 @@ import Tiptap from '@/components/article/Tiptap'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 
+import { addSubmission } from '@/lib/firebase'
+
 export default function ArticleEditor() {
   const formSchema = z.object({
     title: z
       .string()
       .min(5, { message: 'Title must be at least 5 characters' }),
-    date: z.date(),
     content: z
       .string()
       .min(10, { message: 'Content must be at least 10 characters' })
@@ -31,7 +32,6 @@ export default function ArticleEditor() {
     mode: 'onChange',
     defaultValues: {
       title: '',
-      date: new Date(),
       content: '',
     },
   })
@@ -39,7 +39,12 @@ export default function ArticleEditor() {
   const watchTitle = form.watch('title')
   const watchContent = form.watch('content')
 
-  function onSubmit(_values: z.infer<typeof formSchema>) {
+  // TODO: Rate Limiting
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    addSubmission({
+      title: values.title,
+      content: values.content,
+    })
     return
   }
 
