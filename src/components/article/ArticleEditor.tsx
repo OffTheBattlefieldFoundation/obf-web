@@ -14,19 +14,19 @@ import Tiptap from '@/components/article/Tiptap'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 
-import { addSubmission } from '@/lib/firebase'
+const formSchema = z.object({
+  title: z.string().min(5, { message: 'Title must be at least 5 characters' }),
+  content: z.string().trim(),
+})
+
+async function onSubmit({ title, content }: z.infer<typeof formSchema>) {
+  await fetch('/api/submit_article', {
+    method: 'POST',
+    body: JSON.stringify({ title, content }),
+  })
+}
 
 export default function ArticleEditor() {
-  const formSchema = z.object({
-    title: z
-      .string()
-      .min(5, { message: 'Title must be at least 5 characters' }),
-    content: z
-      .string()
-      .min(10, { message: 'Content must be at least 10 characters' })
-      .trim(),
-  })
-
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     mode: 'onChange',
@@ -38,15 +38,6 @@ export default function ArticleEditor() {
 
   const watchTitle = form.watch('title')
   const watchContent = form.watch('content')
-
-  // TODO: Rate Limiting
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    addSubmission({
-      title: values.title,
-      content: values.content,
-    })
-    return
-  }
 
   return (
     <div>
