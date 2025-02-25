@@ -1,12 +1,12 @@
 'use client'
-import DOMPurify from 'dompurify'
+import DOMPurify from 'isomorphic-dompurify'
 import ArticleStyleWrapper from '@/components/article/ArticleStyleWrapper'
 
 export type SubmissionType = {
   id: string
   content?: string
   title?: string
-  time_submitted?: Date
+  time_submitted?: string
 }
 
 export default function SubmissionItem({ title, content }: SubmissionType) {
