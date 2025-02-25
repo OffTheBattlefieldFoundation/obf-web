@@ -1,4 +1,4 @@
-import { detectBot, slidingWindow } from '@arcjet/next'
+import { detectBot, slidingWindow, shield } from '@arcjet/next'
 
 // https://docs.arcjet.com/integrations/nextauth
 // https://docs.arcjet.com/get-started?f=next-js
@@ -15,6 +15,9 @@ export const ajconfig = {
       mode: 'LIVE', // will block requests. Use "DRY_RUN" to log only
       allow: [],
     }),
+    shield({
+      mode: 'LIVE', // will block requests. Use "DRY_RUN" to log only
+    }),
   ],
 }
 
@@ -30,6 +33,9 @@ export const ajconfigSubmitArticle = {
     detectBot({
       mode: 'LIVE',
       allow: [],
+    }),
+    shield({
+      mode: 'LIVE',
     }),
   ],
 }
