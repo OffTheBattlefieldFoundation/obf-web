@@ -53,7 +53,11 @@ export default function ArticleEditor() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="flex justify-end">
-            <Button className="my-4" type="submit">
+            <Button
+              className="my-4"
+              type="submit"
+              disabled={form.formState.isSubmitting}
+            >
               Submit
             </Button>
           </div>
