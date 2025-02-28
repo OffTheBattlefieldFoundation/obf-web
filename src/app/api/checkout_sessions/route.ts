@@ -39,6 +39,50 @@ export async function POST() {
           quantity: 1,
         },
       ],
+      custom_fields: [
+        {
+          key: 'project',
+          type: 'dropdown',
+          optional: true,
+          label: {
+            type: 'custom',
+            custom: 'Which project should your donation support?',
+          },
+          dropdown: {
+            options: [
+              {
+                label: 'Engineering - Bomb Shelter at Bus Stop',
+                value: 'engineering',
+              },
+              {
+                label: 'Public Health - Medical and Food Packages',
+                value: 'publicHealth',
+              },
+              {
+                label: 'Prosthetics - Prosthesis for Veterans',
+                value: 'prosthetics',
+              },
+              {
+                label: 'Agriculture - Water Quality Research',
+                value: 'agriculture',
+              },
+              {
+                label: 'Cultural Affairs - Student Cultural Exchanges',
+                value: 'culturalAffairs',
+              },
+            ],
+          },
+        },
+        {
+          key: 'message',
+          type: 'text',
+          optional: true,
+          label: {
+            type: 'custom',
+            custom: 'Would you like to include a message?',
+          },
+        },
+      ],
       mode: 'payment',
       return_url: getPath() + '/return?session_id={CHECKOUT_SESSION_ID}',
     })
