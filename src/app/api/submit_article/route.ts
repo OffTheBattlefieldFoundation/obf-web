@@ -19,8 +19,20 @@ export async function POST(req: NextRequest) {
 
   const data = await req.json()
 
-  // TODO: Add zod validation
-  await addSubmission(data)
+  if (!data.title || !data.content) {
+    return NextResponse.json(
+      { error: 'Missing title or content' },
+      { status: 400 },
+    )
+  }
 
-  return NextResponse.json({ status: 'open' })
+  // TODO: Add zod validation before adding submission
+  if (await addSubmission(data)) {
+    return NextResponse.json(null, { status: 200 })
+  } else {
+    return NextResponse.json(
+      { error: 'Failed to submit article' },
+      { status: 500 },
+    )
+  }
 }

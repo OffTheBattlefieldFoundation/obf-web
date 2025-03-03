@@ -13,16 +13,29 @@ import { useForm } from 'react-hook-form'
 import Tiptap from '@/components/article/Tiptap'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import { toast } from 'sonner'
 
 const formSchema = z.object({
   title: z.string().min(5, { message: 'Title must be at least 5 characters' }),
-  content: z.string().trim(),
+  content: z.string().trim().min(1, { message: 'Content must not be empty' }),
 })
 
 async function onSubmit({ title, content }: z.infer<typeof formSchema>) {
   await fetch('/api/submit_article', {
     method: 'POST',
     body: JSON.stringify({ title, content }),
+  }).then(async (res) => {
+    if (res.status === 200) {
+      toast.success(
+        'Article submitted successfully! We will review it as soon as possible.',
+      )
+    } else {
+      let error: string = (await res.json()).error
+      if (!error.startsWith('Failed to submit article')) {
+        error = 'Failed to submit article: ' + error
+      }
+      toast.error(error)
+    }
   })
 }
 
