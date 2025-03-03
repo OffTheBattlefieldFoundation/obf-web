@@ -30,8 +30,11 @@ async function onSubmit({ title, content }: z.infer<typeof formSchema>) {
         'Article submitted successfully! We will review it as soon as possible.',
       )
     } else {
-      let error: string = (await res.json()).error
-      if (!error.startsWith('Failed to submit article')) {
+      let error: string | undefined = (await res.json()).error
+
+      if (error == null) {
+        error = 'Failed to submit article'
+      } else if (!error.startsWith('Failed to submit article')) {
         error = 'Failed to submit article: ' + error
       }
       toast.error(error)
