@@ -1,5 +1,6 @@
 'use client'
 import { signIn, signOut, useSession } from 'next-auth/react'
+import { Button } from '@/components/ui/button'
 
 function AuthButton() {
   const { data: session } = useSession()
@@ -8,14 +9,16 @@ function AuthButton() {
     return (
       <>
         {session?.user?.name} <br />
-        <button onClick={() => signOut()}>Sign Out</button>
+        <Button variant="outline" onClick={() => signOut()}>
+          Sign Out
+        </Button>
       </>
     )
   }
   return (
     <>
       Not signed in <br />
-      <button onClick={() => signIn()}>Sign In</button>
+      <Button onClick={() => signIn()}>Sign In</Button>
     </>
   )
 }
