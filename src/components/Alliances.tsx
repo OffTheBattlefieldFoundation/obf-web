@@ -82,7 +82,7 @@ export default function AllianceSection({
               }}
             >
               <center>Partnership Form</center>
-            </div>{' '}
+            </div>
           </a>
         </div>
       </div>
