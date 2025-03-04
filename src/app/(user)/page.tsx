@@ -8,12 +8,26 @@ export const metadata = {
 }
 
 export default function Home() {
+
+  const gallery = {
+    pictures: [
+      '/URI-E-board.JPG',
+      '/Mikhail_and_Nizhyn_Mayor.png',
+      '/Mikhail_and_Gainesville_Mayor.jpg',
+    ],
+    pagination: true,
+    loop: true,
+    autoHeight: true,
+    delay: 5000,
+
+  }
+  
   return (
     <div>
       <main>
         <HomePageBanner />
         <Mission />
-        <Gallery />
+        <Gallery pictures={gallery.pictures} pagination={gallery.pagination} loop={gallery.loop} autoHeight={gallery.autoHeight} />
       </main>
 
       <footer>

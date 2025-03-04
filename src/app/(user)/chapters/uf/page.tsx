@@ -60,62 +60,30 @@ export default function Home() {
         'If you are a business, nonprofit, or organization in Gainesville that is interested in partnering up for the Gainesville-Nizhyn Sister City Alliance, please fill out this form.',
       url: 'https://docs.google.com/forms/d/e/1FAIpQLScoCK2K-MIGtrE5WIQFmYvbigMwgzp9QXY9jesKmSLGnVB1MQ/viewform',
     },
+
     gallery: {
       pictures: [
-        {
-          original: '/uf_gallery/image1.jpg',
-          thumbnail: '/uf_gallery/image1.jpg',
-        },
-        {
-          original: '/uf_gallery/image2.jpg',
-          thumbnail: '/uf_gallery/image2.jpg',
-        },
-        {
-          original: '/uf_gallery/image3.jpg',
-          thumbnail: '/uf_gallery/image3.jpg',
-        },
-        {
-          original: '/uf_gallery/image4.jpg',
-          thumbnail: '/uf_gallery/image4.jpg',
-        },
-        {
-          original: '/uf_gallery/image5.jpg',
-          thumbnail: '/uf_gallery/image5.jpg',
-        },
-        {
-          original: '/uf_gallery/image6.jpg',
-          thumbnail: '/uf_gallery/image6.jpg',
-        },
-        {
-          original: '/uf_gallery/image7.jpg',
-          thumbnail: '/uf_gallery/image7.jpg',
-        },
-        {
-          original: '/uf_gallery/image8.jpg',
-          thumbnail: '/uf_gallery/image8.jpg',
-        },
-        {
-          original: '/uf_gallery/image9.jpg',
-          thumbnail: '/uf_gallery/image9.jpg',
-        },
-        {
-          original: '/uf_gallery/image10.jpg',
-          thumbnail: '/uf_gallery/image10.jpg',
-        },
-        {
-          original: '/uf_gallery/image11.jpg',
-          thumbnail: '/uf_gallery/image11.jpg',
-        },
-        {
-          original: '/uf_gallery/image12.jpg',
-          thumbnail: '/uf_gallery/image12.jpg',
-        },
-        {
-          original: '/uf_gallery/image13.jpg',
-          thumbnail: '/uf_gallery/image13.jpg',
-        },
+        '/uf_gallery/image1.jpg',
+        '/uf_gallery/image2.jpg',
+        '/uf_gallery/image3.jpg',
+        '/uf_gallery/image4.jpg',
+        '/uf_gallery/image5.jpg',
+        '/uf_gallery/image6.jpg',
+        '/uf_gallery/image7.jpg',
+        '/uf_gallery/image8.jpg',
+        '/uf_gallery/image9.jpg',
+        '/uf_gallery/image10.jpg',
+        '/uf_gallery/image11.jpg',
+        '/uf_gallery/image12.jpg',
+        '/uf_gallery/image13.jpg',
       ],
-    },
+      pagination: true,
+      loop: true,
+      autoHeight: true,
+      delay: 5000,
+
+    }
+  
   }
 
   const descriptionStyles = {
@@ -209,6 +177,10 @@ export default function Home() {
         <GallerySection
           galleryStyles={galleryStyles}
           pictures={settings.gallery.pictures}
+          pagination={settings.gallery.pagination}
+          loop={settings.gallery.loop}
+          autoHeight={settings.gallery.autoHeight}
+
         />
       </main>
     </>
