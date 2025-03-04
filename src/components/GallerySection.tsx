@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import Gallery from "@/components/Gallery"
+import Gallery from '@/components/Gallery'
 
 interface GallerySectionProps {
   galleryStyles: React.CSSProperties
@@ -10,7 +10,13 @@ interface GallerySectionProps {
   autoHeight: boolean
 }
 
-export default function GallerySection({ galleryStyles, pictures, pagination, loop, autoHeight }: GallerySectionProps) {
+export default function GallerySection({
+  galleryStyles,
+  pictures,
+  pagination,
+  loop,
+  autoHeight,
+}: GallerySectionProps) {
   return (
     <>
       <div style={{ margin: '1% 40% 0% 5%', ...galleryStyles }}>
@@ -26,7 +32,12 @@ export default function GallerySection({ galleryStyles, pictures, pagination, lo
         }}
       >
         <div style={{ marginTop: '10px', color: '#282F34', fontSize: 16 }}>
-          <Gallery pictures={pictures} pagination={pagination} loop={loop} autoHeight={autoHeight} />
+          <Gallery
+            pictures={pictures}
+            pagination={pagination}
+            loop={loop}
+            autoHeight={autoHeight}
+          />
         </div>
       </div>
     </>

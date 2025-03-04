@@ -8,7 +8,6 @@ export const metadata = {
 }
 
 export default function Home() {
-
   const gallery = {
     pictures: [
       '/URI-E-board.JPG',
@@ -19,15 +18,19 @@ export default function Home() {
     loop: true,
     autoHeight: true,
     delay: 5000,
-
   }
-  
+
   return (
     <div>
       <main>
         <HomePageBanner />
         <Mission />
-        <Gallery pictures={gallery.pictures} pagination={gallery.pagination} loop={gallery.loop} autoHeight={gallery.autoHeight} />
+        <Gallery
+          pictures={gallery.pictures}
+          pagination={gallery.pagination}
+          loop={gallery.loop}
+          autoHeight={gallery.autoHeight}
+        />
       </main>
 
       <footer>

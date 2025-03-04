@@ -81,9 +81,7 @@ export default function Home() {
       loop: true,
       autoHeight: true,
       delay: 5000,
-
-    }
-  
+    },
   }
 
   const descriptionStyles = {
@@ -180,7 +178,6 @@ export default function Home() {
           pagination={settings.gallery.pagination}
           loop={settings.gallery.loop}
           autoHeight={settings.gallery.autoHeight}
-
         />
       </main>
     </>

@@ -3,14 +3,28 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { Pagination, Navigation, Autoplay, EffectCreative } from 'swiper/modules'
+import {
+  Pagination,
+  Navigation,
+  Autoplay,
+  EffectCreative,
+} from 'swiper/modules'
 
-
-export default function Gallery({ pictures, pagination, loop, autoHeight }: { pictures: string[], pagination: boolean, loop: boolean, autoHeight: boolean }) {
+export default function Gallery({
+  pictures,
+  pagination,
+  loop,
+  autoHeight,
+}: {
+  pictures: string[]
+  pagination: boolean
+  loop: boolean
+  autoHeight: boolean
+}) {
   return (
     <div style={{ width: '100%' }}>
       <Swiper
-        effect={"creative"}
+        effect={'creative'}
         pagination={pagination}
         loop={loop}
         autoHeight={autoHeight}
@@ -31,7 +45,11 @@ export default function Gallery({ pictures, pagination, loop, autoHeight }: { pi
       >
         {pictures.map((picture, index) => (
           <SwiperSlide key={index}>
-            <img src={picture} alt={`Gallery image ${index + 1}`} style={{width: '100%', height: 'auto' }} />
+            <img
+              src={picture}
+              alt={`Gallery image ${index + 1}`}
+              style={{ width: '100%', height: 'auto' }}
+            />
           </SwiperSlide>
         ))}
       </Swiper>
