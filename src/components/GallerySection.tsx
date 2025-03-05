@@ -20,7 +20,7 @@ export default function GallerySection({
   return (
     <>
       <div style={{ margin: '1% 40% 0% 5%', ...galleryStyles }}>
-        <span style={{ color: 'green' }}>#</span>&nbsp;Galleries
+        <span style={{ color: 'green' }}>#</span>&nbsp;Gallery
       </div>
 
       <div
