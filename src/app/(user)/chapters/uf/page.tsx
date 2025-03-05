@@ -1,6 +1,7 @@
 import VideoPlayer from '@/components/VideoPlayer'
 import ContentSection from '@/components/RoleDescription'
 import Alliances from '@/components/Alliances'
+import GallerySection from '@/components/GallerySection'
 
 export const metadata = {
   title: 'Off the Battlefield Foundation - University of Florida Chapter',
@@ -59,6 +60,28 @@ export default function Home() {
         'If you are a business, nonprofit, or organization in Gainesville that is interested in partnering up for the Gainesville-Nizhyn Sister City Alliance, please fill out this form.',
       url: 'https://docs.google.com/forms/d/e/1FAIpQLScoCK2K-MIGtrE5WIQFmYvbigMwgzp9QXY9jesKmSLGnVB1MQ/viewform',
     },
+
+    gallery: {
+      pictures: [
+        '/uf_gallery/image1.jpg',
+        '/uf_gallery/image2.jpg',
+        '/uf_gallery/image3.jpg',
+        '/uf_gallery/image4.jpg',
+        '/uf_gallery/image5.jpg',
+        '/uf_gallery/image6.jpg',
+        '/uf_gallery/image7.jpg',
+        '/uf_gallery/image8.jpg',
+        '/uf_gallery/image9.jpg',
+        '/uf_gallery/image10.jpg',
+        '/uf_gallery/image11.jpg',
+        '/uf_gallery/image12.jpg',
+        '/uf_gallery/image13.jpg',
+      ],
+      pagination: true,
+      loop: true,
+      autoHeight: true,
+      delay: 5000,
+    },
   }
 
   const descriptionStyles = {
@@ -74,6 +97,18 @@ export default function Home() {
   }
 
   const allianceStyles = {
+    backgroundColor: settings.description.background_color,
+    border: `${settings.description.borderWidth} solid ${settings.description.borderColor}`,
+    borderRadius: settings.description.borderRadius,
+    padding: settings.description.padding,
+    fontSize: settings.description.fontSize,
+    fontWeight: settings.description.fontWeight,
+    color: settings.description.textColor,
+    boxShadow: settings.description.boxShadow,
+    zIndex: 10,
+  }
+
+  const galleryStyles = {
     backgroundColor: settings.description.background_color,
     border: `${settings.description.borderWidth} solid ${settings.description.borderColor}`,
     borderRadius: settings.description.borderRadius,
@@ -135,6 +170,14 @@ export default function Home() {
           description={settings.alliances.description}
           bolded_description={settings.alliances.bolded_description}
           url={settings.alliances.url}
+        />
+
+        <GallerySection
+          galleryStyles={galleryStyles}
+          pictures={settings.gallery.pictures}
+          pagination={settings.gallery.pagination}
+          loop={settings.gallery.loop}
+          autoHeight={settings.gallery.autoHeight}
         />
       </main>
     </>
