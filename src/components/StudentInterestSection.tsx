@@ -25,15 +25,6 @@ export default function StudentInterestSection({
                 .details-container-studentInterest:hover {
                   background-color:rgb(230, 249, 224);            
                 }
-      
-                .details-summary {
-                  display: flex;
-                  align-items: center;
-                  font-weight: bold;
-                  color: #282F34;
-                  cursor: pointer;
-                  list-style: none;
-                }
               `}
       </style>
 
