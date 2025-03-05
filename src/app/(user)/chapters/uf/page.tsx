@@ -1,6 +1,7 @@
 import VideoPlayer from '@/components/VideoPlayer'
 import ContentSection from '@/components/RoleDescription'
 import Alliances from '@/components/Alliances'
+import StudentInterestSection from '@/components/StudentInterestSection'
 
 export const metadata = {
   title: 'Off the Battlefield Foundation - University of Florida Chapter',
@@ -59,6 +60,11 @@ export default function Home() {
         'If you are a business, nonprofit, or organization in Gainesville that is interested in partnering up for the Gainesville-Nizhyn Sister City Alliance, please fill out this form.',
       url: 'https://docs.google.com/forms/d/e/1FAIpQLScoCK2K-MIGtrE5WIQFmYvbigMwgzp9QXY9jesKmSLGnVB1MQ/viewform',
     },
+    studentInterestForm: {
+      description:
+        'We rely on the support and collaboration of fellow students to bring this initiative to life. Whether you have skills to share, ideas to contribute, or simply a passion for learning, your involvement can make a real difference. If you’re interested in gaining hands-on experience and working with a dedicated team, we’d love for you to join us!',
+      url: 'https://forms.gle/BLYtA3yiVw9nvkoR6',
+    },
   }
 
   const descriptionStyles = {
@@ -74,6 +80,18 @@ export default function Home() {
   }
 
   const allianceStyles = {
+    backgroundColor: settings.description.background_color,
+    border: `${settings.description.borderWidth} solid ${settings.description.borderColor}`,
+    borderRadius: settings.description.borderRadius,
+    padding: settings.description.padding,
+    fontSize: settings.description.fontSize,
+    fontWeight: settings.description.fontWeight,
+    color: settings.description.textColor,
+    boxShadow: settings.description.boxShadow,
+    zIndex: 10,
+  }
+
+  const studentInterestFormStyles = {
     backgroundColor: settings.description.background_color,
     border: `${settings.description.borderWidth} solid ${settings.description.borderColor}`,
     borderRadius: settings.description.borderRadius,
@@ -128,6 +146,12 @@ export default function Home() {
           descriptionStyles={descriptionStyles}
           items={items}
           chapterName={settings.description.chapter_name}
+        />
+
+        <StudentInterestSection
+          studentInterestStyles={studentInterestFormStyles}
+          description={settings.studentInterestForm.description}
+          url={settings.studentInterestForm.url}
         />
 
         <Alliances
