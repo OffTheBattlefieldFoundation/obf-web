@@ -1,14 +1,20 @@
-interface StudentInterestSectionProps {
-  studentInterestStyles: React.CSSProperties
-  description: string
-  url: string
-}
+export default function StudentInterestSection({}) {
+  const studentInterestStyles = {
+    backgroundColor: 'white',
+    border: `4px solid green`,
+    borderRadius: '15px',
+    padding: '10px 20px',
+    fontSize: '14px',
+    fontWeight: 'bold',
+    color: '#333',
+    boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+    zIndex: 10,
+  }
 
-export default function StudentInterestSection({
-  studentInterestStyles,
-  description,
-  url,
-}: StudentInterestSectionProps) {
+  const description =
+    'We rely on the support and collaboration of fellow students to bring this initiative to life. Whether you have skills to share, ideas to contribute, or simply a passion for learning, your involvement can make a real difference. If you’re interested in gaining hands-on experience and working with a dedicated team, we’d love for you to join us!'
+  const url = 'https://forms.gle/BLYtA3yiVw9nvkoR6'
+
   return (
     <>
       {/* Define CSS styles for hover effect */}
@@ -41,7 +47,7 @@ export default function StudentInterestSection({
         }}
       >
         <span style={{ color: '#282F34', fontSize: 32 }}>
-          &nbsp;Want To Join Our Team?{' '}
+          Want To Join Our Team?
         </span>
         <div
           style={{
