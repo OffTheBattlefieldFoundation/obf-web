@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 
-import {
-  getAllArticleIds,
-  getArticleData,
-  getArticleMetaData,
-} from '../../../../../lib/articles'
+import { getArticleData, getArticleMetaData } from '../../../../../lib/articles'
 import { parseISO, format } from 'date-fns'
 
 import ArticleStyleWrapper from '@/components/article/ArticleStyleWrapper'
@@ -47,6 +43,7 @@ export default async function Page({
   )
 }
 
+// TODO: Update
 export function generateStaticParams() {
-  return getAllArticleIds()
+  return []
 }
