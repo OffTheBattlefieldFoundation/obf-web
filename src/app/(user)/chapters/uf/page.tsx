@@ -1,5 +1,7 @@
 import VideoPlayer from '@/components/VideoPlayer'
 import ContentSection from '@/components/RoleDescription'
+import Alliances from '@/components/Alliances'
+import StudentInterestSection from '@/components/StudentInterestSection'
 
 export const metadata = {
   title: 'Off the Battlefield Foundation - University of Florida Chapter',
@@ -51,9 +53,28 @@ export default function Home() {
       textColor: '#333',
       boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
     },
+    alliances: {
+      description:
+        'The City of Gainesville created a Sister-City Alliance with the City of Nizhyn, a municipality in Ukraine. We hope to establish a local coalition of private and public sector partners who can contribute to the development of this relationship and uphold its longevity. Investment may vary, ranging from simple donations to launches of innovative projects, using the cities as case studies for specific developments. We envision a collaborative effort to showcase our cities as models for progress and development on a global scale.',
+      bolded_description:
+        'If you are a business, nonprofit, or organization in Gainesville that is interested in partnering up for the Gainesville-Nizhyn Sister City Alliance, please fill out this form.',
+      url: 'https://docs.google.com/forms/d/e/1FAIpQLScoCK2K-MIGtrE5WIQFmYvbigMwgzp9QXY9jesKmSLGnVB1MQ/viewform',
+    },
   }
 
   const descriptionStyles = {
+    backgroundColor: settings.description.background_color,
+    border: `${settings.description.borderWidth} solid ${settings.description.borderColor}`,
+    borderRadius: settings.description.borderRadius,
+    padding: settings.description.padding,
+    fontSize: settings.description.fontSize,
+    fontWeight: settings.description.fontWeight,
+    color: settings.description.textColor,
+    boxShadow: settings.description.boxShadow,
+    zIndex: 10,
+  }
+
+  const allianceStyles = {
     backgroundColor: settings.description.background_color,
     border: `${settings.description.borderWidth} solid ${settings.description.borderColor}`,
     borderRadius: settings.description.borderRadius,
@@ -108,6 +129,15 @@ export default function Home() {
           descriptionStyles={descriptionStyles}
           items={items}
           chapterName={settings.description.chapter_name}
+        />
+
+        <StudentInterestSection />
+
+        <Alliances
+          allianceStyles={allianceStyles}
+          description={settings.alliances.description}
+          bolded_description={settings.alliances.bolded_description}
+          url={settings.alliances.url}
         />
       </main>
     </>

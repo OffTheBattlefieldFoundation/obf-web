@@ -43,7 +43,12 @@ export default function MyNavbar() {
           <div className="flex space-x-8 ml-12">
             <NavBarButton label="Home" href="/" />
             <NavBarButton label="Chapters" href="/chapters" />
-            <NavBarButton label="Research" href="/research" />
+            <NavBarButton label="Research" href="/research">
+              <NavBarButton
+                label="Publish Your Article"
+                href="/research/publish"
+              />
+            </NavBarButton>
             <NavBarButton label="Donate" href="/donate" />
             <NavBarButton label="Contact Us" href="/contactus" />
           </div>

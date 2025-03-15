@@ -1,9 +1,25 @@
 import { stripe } from '@/lib/stripe'
+import arcjet from '@arcjet/next'
 
 import { NextResponse } from 'next/server'
+import { ajconfig } from '@/config/arcjet'
+
+// https://docs.arcjet.com/integrations/nextauth
+// https://docs.arcjet.com/get-started?f=next-js
+const aj = arcjet(ajconfig)
 
 // Retrieve Checkout Session Information
 export async function GET(req: Request) {
+  const decision = await aj.protect(req)
+
+  if (decision.isDenied()) {
+    if (decision.reason.isRateLimit()) {
+      return NextResponse.json({ error: 'Too Many Requests' }, { status: 429 })
+    } else {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+    }
+  }
+
   try {
     const search = new URL(req.url ?? '').search
     const urlParams = new URLSearchParams(search)
@@ -25,7 +41,17 @@ export async function GET(req: Request) {
 }
 
 // Create Checkout Sessions from body params.
-export async function POST() {
+export async function POST(req: Request) {
+  const decision = await aj.protect(req)
+
+  if (decision.isDenied()) {
+    if (decision.reason.isRateLimit()) {
+      return NextResponse.json({ error: 'Too Many Requests' }, { status: 429 })
+    } else {
+      return NextResponse.json({ error: 'Forbidden' }, { status: 403 })
+    }
+  }
+
   try {
     // https://docs.stripe.com/api/checkout/sessions/create
     // https://docs.stripe.com/payments/checkout/pay-what-you-want?ui=embedded-form&dashboard-or-api=dashboard
@@ -37,6 +63,50 @@ export async function POST() {
           // the product you want to sell
           price: process.env.STRIPE_PRICE_ID ?? '',
           quantity: 1,
+        },
+      ],
+      custom_fields: [
+        {
+          key: 'project',
+          type: 'dropdown',
+          optional: true,
+          label: {
+            type: 'custom',
+            custom: 'Which project should your donation support?',
+          },
+          dropdown: {
+            options: [
+              {
+                label: 'Engineering - Bomb Shelter at Bus Stop',
+                value: 'engineering',
+              },
+              {
+                label: 'Public Health - Medical and Food Packages',
+                value: 'publicHealth',
+              },
+              {
+                label: 'Prosthetics - Prosthesis for Veterans',
+                value: 'prosthetics',
+              },
+              {
+                label: 'Agriculture - Water Quality Research',
+                value: 'agriculture',
+              },
+              {
+                label: 'Cultural Affairs - Student Cultural Exchanges',
+                value: 'culturalAffairs',
+              },
+            ],
+          },
+        },
+        {
+          key: 'message',
+          type: 'text',
+          optional: true,
+          label: {
+            type: 'custom',
+            custom: 'Would you like to include a message?',
+          },
         },
       ],
       mode: 'payment',
