@@ -43,7 +43,8 @@ export default async function Page({
   )
 }
 
-// TODO: Update
+// Returning an empty array statically renders all paths the first time they're visited
+// https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamicparams
 export function generateStaticParams() {
   return []
 }
