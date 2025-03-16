@@ -4,6 +4,7 @@ import { NextResponse, NextRequest } from 'next/server'
 import { ajconfig } from '@/config/arcjet'
 import { addArticle } from '@/lib/firebase'
 import { getServerSession } from 'next-auth'
+import { revalidatePath } from 'next/cache'
 
 const aj = arcjet(ajconfig)
 
@@ -34,6 +35,7 @@ export async function POST(req: NextRequest) {
   }
 
   if (await addArticle(data.title, data.content)) {
+    revalidatePath('/research')
     return NextResponse.json(null, { status: 200 })
   } else {
     return NextResponse.json(

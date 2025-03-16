@@ -3,7 +3,6 @@ import DOMPurify from 'isomorphic-dompurify'
 import ArticleStyleWrapper from '@/components/article/ArticleStyleWrapper'
 import { Button } from '@/components/ui/button'
 import { toast } from 'sonner'
-import { revalidatePath } from 'next/cache'
 
 export type SubmissionType = {
   id: string
@@ -19,7 +18,6 @@ async function handleApprove(title: string, content: string) {
   }).then(async (res) => {
     if (res.status === 200) {
       toast.success('Article approved')
-      revalidatePath('/research')
     } else {
       const error: string | undefined = (await res.json()).error
       toast.error(error)
