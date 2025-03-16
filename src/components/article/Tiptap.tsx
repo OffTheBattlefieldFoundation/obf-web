@@ -3,6 +3,7 @@
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import Placeholder from '@tiptap/extension-placeholder'
+import Image from '@tiptap/extension-image'
 
 import { Toolbar } from './ToolBar'
 import Link from '@tiptap/extension-link'
@@ -95,6 +96,7 @@ export default function Tiptap({
           }
         },
       }),
+      Image.configure({}),
     ],
     content: description,
     editorProps: {
@@ -107,6 +109,10 @@ export default function Tiptap({
     },
     immediatelyRender: false,
   })
+
+  if (!editor) {
+    return null
+  }
 
   return (
     <div className="flex flex-col justify-stretch min-h-[250px]">
