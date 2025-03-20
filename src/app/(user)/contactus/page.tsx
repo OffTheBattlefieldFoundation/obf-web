@@ -28,10 +28,14 @@ export default function ContactUsPage() {
           }}
         >
           <p style={{ marginBottom: '20px', color: '#333', fontSize: '16px' }}>
-            Alternative contact: 
-            <a 
-              href="mailto:offthebattlefieldfoundation@gmail.com" 
-              style={{ color: 'green', textDecoration: 'none', marginLeft: '5px' }}
+            Alternative contact:
+            <a
+              href="mailto:offthebattlefieldfoundation@gmail.com"
+              style={{
+                color: 'green',
+                textDecoration: 'none',
+                marginLeft: '5px',
+              }}
             >
               offthebattlefieldfoundation@gmail.com
             </a>
