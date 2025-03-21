@@ -2,6 +2,7 @@ import VideoPlayer from '@/components/VideoPlayer'
 import ContentSection from '@/components/RoleDescription'
 import Alliances from '@/components/Alliances'
 import GallerySection from '@/components/GallerySection'
+import StudentInterestSection from '@/components/StudentInterestSection'
 
 export const metadata = {
   title: 'Off the Battlefield Foundation - University of Florida Chapter',
@@ -164,6 +165,8 @@ export default function Home() {
           items={items}
           chapterName={settings.description.chapter_name}
         />
+
+        <StudentInterestSection />
 
         <Alliances
           allianceStyles={allianceStyles}

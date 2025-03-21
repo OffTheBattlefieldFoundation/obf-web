@@ -1,10 +1,6 @@
 import type { Metadata } from 'next'
 
-import {
-  getAllArticleIds,
-  getArticleData,
-  getArticleMetaData,
-} from '../../../../../lib/articles'
+import { getArticleData, getArticleMetaData } from '../../../../../lib/articles'
 import { parseISO, format } from 'date-fns'
 
 import ArticleStyleWrapper from '@/components/article/ArticleStyleWrapper'
@@ -47,6 +43,8 @@ export default async function Page({
   )
 }
 
+// Returning an empty array statically renders all paths the first time they're visited
+// https://nextjs.org/docs/app/api-reference/file-conventions/route-segment-config#dynamicparams
 export function generateStaticParams() {
-  return getAllArticleIds()
+  return []
 }

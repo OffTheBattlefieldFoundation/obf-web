@@ -11,10 +11,11 @@ import {
   Heading1,
   Heading2,
   Heading3,
+  Image as ImageIcon,
 } from 'lucide-react'
 
 type Props = {
-  editor: Editor | null
+  editor: Editor
 }
 
 function ToolButton({
@@ -49,10 +50,6 @@ function ToolButton({
 export function Toolbar({ editor }: Props) {
   // TODO: Create a better UI for setting links
   const setLink = useCallback(() => {
-    if (!editor) {
-      return
-    }
-
     const previousUrl = editor.getAttributes('link').href
     const url = window.prompt('URL', previousUrl)
 
@@ -80,9 +77,13 @@ export function Toolbar({ editor }: Props) {
     }
   }, [editor])
 
-  if (!editor) {
-    return null
-  }
+  const addImage = useCallback(() => {
+    const url = window.prompt('URL')
+
+    if (url) {
+      editor.chain().focus().setImage({ src: url }).run()
+    }
+  }, [editor])
 
   return (
     <div className="p-2 flex space-x-2 border border-input bg-transparent rounded-md">
@@ -140,6 +141,13 @@ export function Toolbar({ editor }: Props) {
         onClick={() => editor.chain().focus().toggleOrderedList().run()}
       >
         <ListOrdered className="h-4 w-4" />
+      </ToolButton>
+
+      <ToolButton
+        isActive={editor.isActive('image')}
+        onClick={() => addImage()}
+      >
+        <ImageIcon className="h-4 w-4" />
       </ToolButton>
 
       <ToolButton isActive={editor.isActive('link')} onClick={setLink}>
