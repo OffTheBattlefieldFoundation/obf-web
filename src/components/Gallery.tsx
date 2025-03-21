@@ -10,24 +10,14 @@ import {
   EffectCreative,
 } from 'swiper/modules'
 
-export default function Gallery({
-  pictures,
-  pagination,
-  loop,
-  autoHeight,
-}: {
-  pictures: string[]
-  pagination: boolean
-  loop: boolean
-  autoHeight: boolean
-}) {
+export default function Gallery({ pictures }: { pictures: string[] }) {
   return (
     <div style={{ width: '100%' }}>
       <Swiper
         effect={'creative'}
-        pagination={pagination}
-        loop={loop}
-        autoHeight={autoHeight}
+        pagination={true}
+        loop={true}
+        autoHeight={true}
         creativeEffect={{
           prev: {
             shadow: true,

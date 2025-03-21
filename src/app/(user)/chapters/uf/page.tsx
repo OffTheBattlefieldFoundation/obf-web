@@ -62,27 +62,21 @@ export default function Home() {
       url: 'https://docs.google.com/forms/d/e/1FAIpQLScoCK2K-MIGtrE5WIQFmYvbigMwgzp9QXY9jesKmSLGnVB1MQ/viewform',
     },
 
-    gallery: {
-      pictures: [
-        '/uf_gallery/image1.jpg',
-        '/uf_gallery/image2.jpg',
-        '/uf_gallery/image3.jpg',
-        '/uf_gallery/image4.jpg',
-        '/uf_gallery/image5.jpg',
-        '/uf_gallery/image6.jpg',
-        '/uf_gallery/image7.jpg',
-        '/uf_gallery/image8.jpg',
-        '/uf_gallery/image9.jpg',
-        '/uf_gallery/image10.jpg',
-        '/uf_gallery/image11.jpg',
-        '/uf_gallery/image12.jpg',
-        '/uf_gallery/image13.jpg',
-      ],
-      pagination: true,
-      loop: true,
-      autoHeight: true,
-      delay: 5000,
-    },
+    galleryPictures: [
+      '/uf_gallery/image1.jpg',
+      '/uf_gallery/image2.jpg',
+      '/uf_gallery/image3.jpg',
+      '/uf_gallery/image4.jpg',
+      '/uf_gallery/image5.jpg',
+      '/uf_gallery/image6.jpg',
+      '/uf_gallery/image7.jpg',
+      '/uf_gallery/image8.jpg',
+      '/uf_gallery/image9.jpg',
+      '/uf_gallery/image10.jpg',
+      '/uf_gallery/image11.jpg',
+      '/uf_gallery/image12.jpg',
+      '/uf_gallery/image13.jpg',
+    ],
   }
 
   const descriptionStyles = {
@@ -177,10 +171,7 @@ export default function Home() {
 
         <GallerySection
           galleryStyles={galleryStyles}
-          pictures={settings.gallery.pictures}
-          pagination={settings.gallery.pagination}
-          loop={settings.gallery.loop}
-          autoHeight={settings.gallery.autoHeight}
+          pictures={settings.galleryPictures}
         />
       </main>
     </>
