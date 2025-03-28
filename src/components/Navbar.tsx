@@ -50,6 +50,7 @@ export default function MyNavbar() {
               />
             </NavBarButton>
             <NavBarButton label="Donate" href="/donate" />
+            <NavBarButton label="Contact Us" href="contactus" />
           </div>
         </Toolbar>
       </div>
