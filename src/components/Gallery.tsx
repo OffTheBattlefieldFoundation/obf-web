@@ -1,15 +1,23 @@
 'use client'
-import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
+import {
+  Pagination,
+  Navigation,
+  Autoplay,
+  EffectCreative,
+} from 'swiper/modules'
 
-import { Autoplay, EffectCreative } from 'swiper/modules'
-
-export default function Gallery() {
+export default function Gallery({ pictures }: { pictures: string[] }) {
   return (
     <div style={{ width: '100%' }}>
       <Swiper
         effect={'creative'}
+        pagination={true}
+        loop={true}
+        autoHeight={true}
         creativeEffect={{
           prev: {
             shadow: true,
@@ -19,28 +27,21 @@ export default function Gallery() {
             translate: ['100%', 0, 0],
           },
         }}
-        loop={true}
         autoplay={{
           delay: 5000,
           disableOnInteraction: false,
         }}
-        modules={[Autoplay, EffectCreative]}
+        modules={[Autoplay, EffectCreative, Pagination, Navigation]}
       >
-        <SwiperSlide>
-          <img src="/URI-E-board.JPG" alt="URI E-board" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="/Mikhail_and_Nizhyn_Mayor.png"
-            alt="Mikhail and Nizhyn Mayor"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="/Mikhail_and_Gainesville_Mayor.jpg"
-            alt="Mikhail and Gainesville Mayor"
-          />
-        </SwiperSlide>
+        {pictures.map((picture, index) => (
+          <SwiperSlide key={index}>
+            <img
+              src={picture}
+              alt={`Gallery image ${index + 1}`}
+              style={{ width: '100%', height: 'auto' }}
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   )

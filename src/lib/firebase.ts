@@ -22,4 +22,19 @@ const addSubmission = async (formData: {
   }
 }
 
-export { addSubmission }
+const addArticle = async (title: string, content: string) => {
+  const collectionRef = collection(db, 'articles')
+
+  try {
+    const docRef = await addDoc(collectionRef, {
+      title,
+      date: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
+      content,
+    })
+    return docRef.id != null
+  } catch (_e) {
+    return false
+  }
+}
+
+export { addSubmission, addArticle }
