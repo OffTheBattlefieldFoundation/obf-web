@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import AppBar from '@mui/material/AppBar'
-import Toolbar from '@mui/material/Toolbar'
 import LogoTitle from '@/components/LogoTitle'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
 import NavBarButton from '@/components/NavbarButton'
@@ -17,8 +16,8 @@ export default function MyNavbar() {
       className={trigger ? 'bg-lime-50' : 'bg-lime-25'}
       elevation={trigger ? 1 : 0}
     >
-      <div className={`${trigger ? 'py-2' : 'py-8'} px-16 transition-all`}>
-        <Toolbar>
+      <div className={`${trigger ? 'py-4' : 'py-10'} px-16 transition-all`}>
+        <div className="flex">
           <LogoTitle className="text-[#009b25]" />
 
           <div className="flex space-x-8 ml-12">
@@ -32,7 +31,7 @@ export default function MyNavbar() {
             </NavBarButton>
             <NavBarButton label="Donate" href="/donate" />
           </div>
-        </Toolbar>
+        </div>
       </div>
     </AppBar>
   )
