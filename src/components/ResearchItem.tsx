@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { Outfit } from 'next/font/google'
 import Link from 'next/link'
 import { parseISO, format } from 'date-fns'
-import Box from '@mui/material/Box'
 
 import { ArticleMetaData } from '../../lib/articles'
 
@@ -50,25 +49,12 @@ export default function ResearchItem({
       </style>
 
       <Link href={`/research/${articleMetaData.id}`}>
-        <Box
-          className={outfit.className + ' titleCard'}
-          sx={{
-            width: {
-              xs: '100%',
-              sm: '70%',
-              md: '50%',
-            },
-          }}
+        <div
+          className={outfit.className + ' titleCard w-full sm:w-3/4 md:w-1/2'}
         >
-          <div
-            style={{
-              fontSize: 24,
-            }}
-          >
-            {title}
-          </div>
+          <div className="text-2xl">{title}</div>
           <div>{format(date, 'LLLL d, yyyy')}</div>
-        </Box>
+        </div>
       </Link>
     </div>
   )

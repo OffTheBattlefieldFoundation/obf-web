@@ -1,5 +1,3 @@
-import Typography from '@mui/material/Typography'
-
 import Image from 'next/image'
 import { Philosopher } from 'next/font/google'
 
@@ -24,13 +22,9 @@ export default function Title({ className, variant = 'default' }: Props) {
         />
       </a>
       <a className="flex flex-col justify-center" href="/">
-        <Typography
-          className={philosopher.className + ' ' + className}
-          variant="h5"
-          component="div"
-        >
+        <div className={philosopher.className + ' text-2xl ' + className}>
           Off the Battlefield Foundation
-        </Typography>
+        </div>
       </a>
     </div>
   )
