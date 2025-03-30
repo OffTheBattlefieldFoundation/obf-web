@@ -13,7 +13,7 @@ interface Props {
 export default function Title({ className, variant = 'default' }: Props) {
   return (
     <div className="flex">
-      <a href="/">
+      <a className="flex flex-col justify-center" href="/">
         <Image
           priority
           className="inline"
@@ -23,17 +23,15 @@ export default function Title({ className, variant = 'default' }: Props) {
           height="48"
         />
       </a>
-      <div className="flex flex-col justify-center">
-        <a href="/">
-          <Typography
-            className={philosopher.className + ' ' + className}
-            variant="h5"
-            component="div"
-          >
-            Off the Battlefield Foundation
-          </Typography>
-        </a>
-      </div>
+      <a className="flex flex-col justify-center" href="/">
+        <Typography
+          className={philosopher.className + ' ' + className}
+          variant="h5"
+          component="div"
+        >
+          Off the Battlefield Foundation
+        </Typography>
+      </a>
     </div>
   )
 }
