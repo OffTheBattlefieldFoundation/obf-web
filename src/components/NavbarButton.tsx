@@ -2,7 +2,7 @@
 import './NavbarButton.css'
 import { useState } from 'react'
 import Link from 'next/link'
-import useScrollTrigger from '@mui/material/useScrollTrigger'
+import { useWindowScroll } from '@uidotdev/usehooks'
 
 type NavBarButtonProps = {
   label: string
@@ -17,10 +17,8 @@ export default function NavbarButton({
   children,
 }: NavBarButtonProps) {
   const [isHovering, setIsHovering] = useState<boolean>(false)
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  })
+  const [{ y }] = useWindowScroll()
+  const scrollTrigger = y != null && y > 0
 
   // If there is a single child, use an array of size 1
   const childrenArray: React.ReactNode[] | null =
@@ -49,7 +47,7 @@ export default function NavbarButton({
           className={
             'fixed min-w-20 p-2 flex flex-col bg-stone-50 rounded-md shadow-xl transition-all'
           }
-          style={{ top: trigger ? 60 : 84 }}
+          style={{ top: scrollTrigger ? 60 : 84 }}
         >
           {childrenArray.map((child, i) => (
             <div key={i} className="py-2">

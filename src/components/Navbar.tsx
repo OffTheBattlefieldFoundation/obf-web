@@ -1,25 +1,23 @@
 'use client'
 import React from 'react'
 import LogoTitle from '@/components/LogoTitle'
-import useScrollTrigger from '@mui/material/useScrollTrigger'
 import NavBarButton from '@/components/NavbarButton'
+import { useWindowScroll } from '@uidotdev/usehooks'
 
 export default function MyNavbar() {
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  })
+  const [{ y }] = useWindowScroll()
+  const scrollTrigger = y != null && y > 0
 
   return (
     <div
       className={
         'fixed top-0 z-10 w-full transition-all ease-out ' +
-        (trigger ? 'bg-lime-50' : 'bg-lime-25')
+        (scrollTrigger ? 'bg-lime-50' : 'bg-lime-25')
       }
-      style={{ boxShadow: trigger ? '0px 0px 2px 0px' : 'none' }}
+      style={{ boxShadow: scrollTrigger ? '0px 0px 2px 0px' : 'none' }}
     >
       <div
-        className={`${trigger ? 'py-4' : 'py-10'} px-16 transition-all ease-out`}
+        className={`${scrollTrigger ? 'py-4' : 'py-10'} px-16 transition-all ease-out`}
       >
         <div className="flex">
           <LogoTitle className="text-[#009b25]" />
