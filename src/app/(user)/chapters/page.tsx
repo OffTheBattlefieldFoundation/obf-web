@@ -79,11 +79,6 @@ export default function Home() {
           </div>
         </div>
       </main>
-
-      <footer>
-        {/* Footer with copyright information */}
-        <p>Off the Battlefield &copy; {new Date().getFullYear()}</p>
-      </footer>
     </div>
   )
 }

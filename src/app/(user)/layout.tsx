@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export default async function Layout({
   children,
@@ -6,9 +7,14 @@ export default async function Layout({
   children: React.ReactNode
 }>) {
   return (
-    <div>
-      <Navbar />
-      {children}
-    </div>
+    <>
+      <div style={{ minHeight: '100vh' }}>
+        <Navbar />
+        {children}
+      </div>
+      <footer>
+        <Footer />
+      </footer>
+    </>
   )
 }

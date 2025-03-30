@@ -5,10 +5,6 @@ export const metadata: Metadata = {
   description: 'Helping veterans connect with compassionate companions.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function Layout({ children }: { children: React.ReactNode }) {
   return <>{children}</>
 }
