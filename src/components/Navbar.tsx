@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import AppBar from '@mui/material/AppBar'
 import LogoTitle from '@/components/LogoTitle'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
 import NavBarButton from '@/components/NavbarButton'
@@ -12,11 +11,16 @@ export default function MyNavbar() {
   })
 
   return (
-    <AppBar
-      className={trigger ? 'bg-lime-50' : 'bg-lime-25'}
-      elevation={trigger ? 1 : 0}
+    <div
+      className={
+        'fixed top-0 z-10 w-full transition-all ease-out ' +
+        (trigger ? 'bg-lime-50' : 'bg-lime-25')
+      }
+      style={{ boxShadow: trigger ? '0px 0px 2px 0px' : 'none' }}
     >
-      <div className={`${trigger ? 'py-4' : 'py-10'} px-16 transition-all`}>
+      <div
+        className={`${trigger ? 'py-4' : 'py-10'} px-16 transition-all ease-out`}
+      >
         <div className="flex">
           <LogoTitle className="text-[#009b25]" />
 
@@ -33,6 +37,6 @@ export default function MyNavbar() {
           </div>
         </div>
       </div>
-    </AppBar>
+    </div>
   )
 }
