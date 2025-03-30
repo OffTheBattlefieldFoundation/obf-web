@@ -2,8 +2,7 @@
 import React from 'react'
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar'
-import Title from '@/components/Title'
-import Image from 'next/image'
+import LogoTitle from '@/components/LogoTitle'
 import useScrollTrigger from '@mui/material/useScrollTrigger'
 import NavBarButton from '@/components/NavbarButton'
 
@@ -20,16 +19,7 @@ export default function MyNavbar() {
     >
       <div className={`${trigger ? 'py-2' : 'py-8'} px-16 transition-all`}>
         <Toolbar>
-          <Image
-            priority
-            className="inline"
-            src="/obf_logo.png"
-            alt="logo"
-            width="48"
-            height="48"
-          />
-
-          <Title className="text-[#009b25]" />
+          <LogoTitle className="text-[#009b25]" />
 
           <div className="flex space-x-8 ml-12">
             <NavBarButton label="Home" href="/" />
