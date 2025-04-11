@@ -15,16 +15,10 @@ export default function Home() {
   ]
 
   return (
-    <div>
-      <main>
-        <HomePageBanner />
-        <Mission />
-        <Gallery pictures={pictures} />
-      </main>
-
-      <footer>
-        <p>Off the Battlefield Foundation ©{new Date().getFullYear()}</p>
-      </footer>
-    </div>
+    <main>
+      <HomePageBanner />
+      <Mission />
+      <Gallery pictures={pictures} />
+    </main>
   )
 }

@@ -2,6 +2,7 @@
 import './NavbarButton.css'
 import { useState } from 'react'
 import Link from 'next/link'
+import { useWindowScroll } from '@uidotdev/usehooks'
 
 type NavBarButtonProps = {
   label: string
@@ -16,6 +17,8 @@ export default function NavbarButton({
   children,
 }: NavBarButtonProps) {
   const [isHovering, setIsHovering] = useState<boolean>(false)
+  const [{ y }] = useWindowScroll()
+  const scrollTrigger = y != null && y > 0
 
   // If there is a single child, use an array of size 1
   const childrenArray: React.ReactNode[] | null =
@@ -26,7 +29,10 @@ export default function NavbarButton({
       : null
 
   return (
-    <div onMouseLeave={() => setIsHovering(false)}>
+    <div
+      onMouseLeave={() => setIsHovering(false)}
+      className="flex flex-col justify-center relative"
+    >
       <Link href={href}>
         <button
           className="mybutton bg-gradient-to-r from-lime-600 from-50% to-lime-950 to-50%"
@@ -37,15 +43,17 @@ export default function NavbarButton({
       </Link>
 
       {isHovering && childrenArray != null && (
-        <div style={{ position: 'fixed' }}>
-          <div className="h-2" />
-          <div className="min-w-20 p-2 flex flex-col bg-stone-50 rounded-md shadow-xl">
-            {childrenArray.map((child, i) => (
-              <div key={i} className="py-2">
-                {child}
-              </div>
-            ))}
-          </div>
+        <div
+          className={
+            'fixed min-w-20 p-2 flex flex-col bg-stone-50 rounded-md shadow-xl transition-all'
+          }
+          style={{ top: scrollTrigger ? 60 : 84 }}
+        >
+          {childrenArray.map((child, i) => (
+            <div key={i} className="py-2">
+              {child}
+            </div>
+          ))}
         </div>
       )}
     </div>
