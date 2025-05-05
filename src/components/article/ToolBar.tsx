@@ -1,7 +1,7 @@
 'use client'
 import { useCallback } from 'react'
 
-import { type Editor } from '@tiptap/react'
+import { type Editor, EditorContext } from '@tiptap/react'
 import {
   Bold,
   Strikethrough,
@@ -11,8 +11,9 @@ import {
   Heading1,
   Heading2,
   Heading3,
-  Image as ImageIcon,
 } from 'lucide-react'
+
+import { ImageUploadButton } from '@/components/tiptap-ui/image-upload-button'
 
 type Props = {
   editor: Editor
@@ -143,13 +144,6 @@ export function Toolbar({ editor }: Props) {
         <ListOrdered className="h-4 w-4" />
       </ToolButton>
 
-      <ToolButton
-        isActive={editor.isActive('image')}
-        onClick={() => addImage()}
-      >
-        <ImageIcon className="h-4 w-4" />
-      </ToolButton>
-
       <ToolButton isActive={editor.isActive('link')} onClick={setLink}>
         Set Link
       </ToolButton>
@@ -160,6 +154,17 @@ export function Toolbar({ editor }: Props) {
       >
         Unset Link
       </ToolButton>
+
+      <ToolButton
+        isActive={editor.isActive('image')}
+        onClick={() => addImage()}
+      >
+        Image URL
+      </ToolButton>
+
+      <EditorContext.Provider value={{ editor }}>
+        <ImageUploadButton text="Image Upload" />
+      </EditorContext.Provider>
     </div>
   )
 }
