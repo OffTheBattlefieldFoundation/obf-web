@@ -29,8 +29,8 @@ export default function Return() {
     return (
       <section className="pt-24">
         <p>
-          We appreciate your business! A confirmation email will be sent to{' '}
-          {customerEmail}. If you have any questions, please email{' '}
+          Your donation is greatly appreciated! A confirmation email will be
+          sent to {customerEmail}. If you have any questions, please email{' '}
           <a href="mailto:orders@example.com">orders@example.com</a>.
         </p>
       </section>
