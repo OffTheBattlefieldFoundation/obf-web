@@ -25,6 +25,8 @@ export default function Return() {
     return redirect('/')
   }
 
+  const obfEmail = 'offthebattlefieldfoundation@gmail.com'
+
   if (status === 'complete') {
     return (
       <div className="flex justify-center">
@@ -32,10 +34,7 @@ export default function Return() {
           <p>
             Your donation is greatly appreciated! A confirmation email will be
             sent to {customerEmail}. If you have any questions, please email{' '}
-            <a href="mailto:orders@example.com">
-              offthebattlefieldfoundation@gmail.com
-            </a>
-            .
+            <a href={'mailto:' + obfEmail}>{obfEmail}</a>.
           </p>
         </section>
       </div>
