@@ -10,6 +10,10 @@ import Link from '@tiptap/extension-link'
 
 import ArticleStyleWrapper from '@/components/article/ArticleStyleWrapper'
 
+import '@/components/tiptap-node/image-upload-node/image-upload-node.scss'
+import { ImageUploadNode } from '@/components/tiptap-node/image-upload-node'
+import { handleImageUpload } from '@/components/article/utils'
+
 export default function Tiptap({
   title,
   isEmpty,
@@ -97,6 +101,13 @@ export default function Tiptap({
         },
       }),
       Image.configure({}),
+      ImageUploadNode.configure({
+        accept: 'image/*',
+        maxSize: 2000000, // 5MB
+        limit: 10,
+        upload: handleImageUpload,
+        onError: (error) => alert('Upload failed: ' + error.message),
+      }),
     ],
     content: description,
     editorProps: {
@@ -137,6 +148,7 @@ export default function Tiptap({
             <time>Month DD, YYYY</time>
             <br />
           </div>
+
           <EditorContent
             className={isEmpty ? 'border rounded-md' : ''}
             editor={editor}
