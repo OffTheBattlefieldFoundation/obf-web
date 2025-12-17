@@ -27,13 +27,18 @@ export default function Return() {
 
   if (status === 'complete') {
     return (
-      <section className="pt-24">
-        <p>
-          Your donation is greatly appreciated! A confirmation email will be
-          sent to {customerEmail}. If you have any questions, please email{' '}
-          <a href="mailto:orders@example.com">orders@example.com</a>.
-        </p>
-      </section>
+      <div className="flex justify-center">
+        <section className="pt-24">
+          <p>
+            Your donation is greatly appreciated! A confirmation email will be
+            sent to {customerEmail}. If you have any questions, please email{' '}
+            <a href="mailto:orders@example.com">
+              offthebattlefieldfoundation@gmail.com
+            </a>
+            .
+          </p>
+        </section>
+      </div>
     )
   }
 
