@@ -83,9 +83,12 @@ function randomCatName() {
 
 async function fetchCatImages(): Promise<CatApiImage[]> {
   try {
-    const response = await fetch('https://api.thecatapi.com/v1/images/search?limit=10', {
-      cache: 'no-store',
-    })
+    const response = await fetch(
+      'https://api.thecatapi.com/v1/images/search?limit=10',
+      {
+        cache: 'no-store',
+      },
+    )
 
     if (!response.ok) {
       return []
@@ -107,7 +110,9 @@ export default async function CatsOfTheWeekPage() {
       <h1 className="text-3xl font-bold text-center mb-8">Cats of the week</h1>
 
       {cats.length === 0 ? (
-        <p className="text-center">Could not load cat pictures right now. Please try again.</p>
+        <p className="text-center">
+          Could not load cat pictures right now. Please try again.
+        </p>
       ) : (
         <section className="grid grid-cols-2 gap-4 md:grid-cols-5">
           {cats.map((cat, index) => (
