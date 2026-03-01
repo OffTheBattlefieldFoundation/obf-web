@@ -4,7 +4,11 @@ import LogoTitle from '@/components/LogoTitle'
 import NavBarButton from '@/components/NavbarButton'
 import { useWindowScroll } from '@uidotdev/usehooks'
 
-export default function MyNavbar() {
+type NavbarProps = {
+  isAdmin: boolean
+}
+
+export default function MyNavbar({ isAdmin }: NavbarProps) {
   const [{ y }] = useWindowScroll()
   const scrollTrigger = y != null && y > 0
 
@@ -25,12 +29,14 @@ export default function MyNavbar() {
           <div className="flex space-x-8 ml-12">
             <NavBarButton label="Home" href="/" />
             <NavBarButton label="Chapters" href="/chapters" />
-            <NavBarButton label="Research" href="/research">
-              <NavBarButton
-                label="Publish Your Article"
-                href="/research/publish"
-              />
-            </NavBarButton>
+            {isAdmin ? (
+              <NavBarButton label="Research" href="/research">
+                <NavBarButton
+                  label="Publish Your Article"
+                  href="/research/publish"
+                />
+              </NavBarButton>
+            ) : null}
             <NavBarButton label="Donate" href="/donate" />
           </div>
         </div>
