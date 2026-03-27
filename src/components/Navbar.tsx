@@ -38,6 +38,7 @@ export default function MyNavbar({ isAdmin }: NavbarProps) {
               </NavBarButton>
             ) : null}
             <NavBarButton label="Donate" href="/donate" />
+            <NavBarButton label="Contact Us" href="contactus" />
           </div>
         </div>
       </div>
