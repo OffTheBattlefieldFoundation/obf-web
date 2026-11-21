@@ -28,7 +28,7 @@ export default function MyNavbar({ isAdmin }: NavbarProps) {
 
           <div className="flex space-x-8 ml-12">
             <NavBarButton label="Home" href="/" />
-            <NavBarButton label="Chapters" href="/chapters" />
+            <NavBarButton label="Projects" href="/projects" />
             {isAdmin ? (
               <NavBarButton label="Research" href="/research">
                 <NavBarButton

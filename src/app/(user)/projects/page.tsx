@@ -5,22 +5,22 @@ import { useState } from 'react'
 
 export default function Home() {
   const chapters = [
-    // Template for adding a new chapter button.
+    // Template for adding a new project button.
     // href: URL to redirect the user when the button is clicked.
-    // imgSrc: Path to the chapter logo image.
+    // imgSrc: Path to the project logo image.
     // altText: Description for the logo image (for accessibility and tooltips).
     // title: Text displayed below the logo.
     {
-      href: '/chapters/uf',
-      imgSrc: '/uf_logo.png',
-      altText: 'University of Florida Logo',
-      title: 'University of Florida',
+      href: '/projects/uri',
+      imgSrc: '/URI-Logo.png',
+      altText: 'Ukraine Rebuilding Initiative Logo',
+      title: 'Ukraine Rebuilding Initiative',
     },
     {
-      href: '/chapters/ucf',
-      imgSrc: '/ucf_logo.png',
-      altText: 'University of Central Florida Logo',
-      title: 'University of Central Florida',
+      href: '/projects/ccai',
+      imgSrc: '/obf_logo.png',
+      altText: 'Off the Battlefield Foundation Logo',
+      title: 'Civically Combatting Antisemitism and Islamophobia',
     },
     {
       href: 'https://docs.google.com/forms/d/e/1FAIpQLSf-u4SOEj789A7rxFc3W8N53iYcbu6u_IeACqt7-i8waQezGw/viewform',
