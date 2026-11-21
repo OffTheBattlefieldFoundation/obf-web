@@ -1,3 +1,6 @@
+'use client'
+import { useEffect, useRef } from 'react'
+
 // Define TypeScript types for the props
 interface VideoSettings {
   src: string
@@ -46,6 +49,22 @@ export default function VideoPlayer({
   logoSettings,
 }: VideoPlayerProps) {
   const posterUrl = videoSettings.poster || null
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  // Start playback from code instead of the autoPlay attribute. With
+  // autoPlay, any copy of the <video> element React creates during a
+  // client-side page transition starts playing too, even though it is never
+  // shown, so its sound keeps going after the visible video is paused.
+  // Playing only the mounted element, and pausing it on unmount, avoids that.
+  useEffect(() => {
+    const video = videoRef.current
+    if (!video) return
+    if (videoSettings.autoPlay) {
+      // Browsers may block autoplay with sound; the video then stays paused.
+      video.play().catch(() => {})
+    }
+    return () => video.pause()
+  }, [videoSettings.autoPlay])
 
   return (
     <div
@@ -57,7 +76,7 @@ export default function VideoPlayer({
       }}
     >
       <video
-        autoPlay={videoSettings.autoPlay}
+        ref={videoRef}
         loop={videoSettings.loop}
         muted={videoSettings.muted}
         controls
