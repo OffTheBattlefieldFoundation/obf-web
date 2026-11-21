@@ -4,8 +4,8 @@ import Typewriter from 'typewriter-effect'
 
 export default function HomePageBanner() {
   return (
-    <div className="bg-lime-100" style={{ width: '100%', height: 700 }}>
-      <div className="flex flex-col items-center justify-center h-full">
+    <div className="w-full bg-lime-100 px-4 py-16 md:py-24">
+      <div className="flex flex-col items-center justify-center gap-3 text-center">
         <h1 className="text-4xl font-bold text-lime-950">
           Off the Battlefield Foundation
         </h1>

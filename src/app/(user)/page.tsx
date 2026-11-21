@@ -18,7 +18,9 @@ export default function Home() {
     <main>
       <HomePageBanner />
       <Mission />
-      <Gallery pictures={pictures} />
+      <section className="mx-auto w-full max-w-3xl px-4 pb-16">
+        <Gallery pictures={pictures} />
+      </section>
     </main>
   )
 }
