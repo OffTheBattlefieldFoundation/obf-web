@@ -12,15 +12,16 @@ export default function Home() {
     // title: Text displayed below the logo.
     {
       href: '/projects/uri',
-      imgSrc: '/URI-Logo.png',
+      imgSrc: '/logos/uri-logo.png',
       altText: 'Ukraine Rebuilding Initiative Logo',
       title: 'Ukraine Rebuilding Initiative',
     },
     {
       href: '/projects/ccai',
-      imgSrc: '/obf_logo.png',
-      altText: 'Off the Battlefield Foundation Logo',
+      imgSrc: '/logos/ccai-logo.svg',
+      altText: 'Civically Combatting Antisemitism and Islamophobia Logo',
       title: 'Civically Combatting Antisemitism and Islamophobia',
+      imgWidth: 270,
     },
     {
       href: 'https://docs.google.com/forms/d/e/1FAIpQLSf-u4SOEj789A7rxFc3W8N53iYcbu6u_IeACqt7-i8waQezGw/viewform',
@@ -33,16 +34,9 @@ export default function Home() {
   const [hoveredCardIndex, setHoveredCardIndex] = useState<number | null>(null)
 
   return (
-    <main className="pt-24 flex justify-center items-center">
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
-          gap: '32px',
-          maxWidth: '1000px',
-          width: '100%',
-        }}
-      >
+    <main className="flex items-center justify-center px-4 pt-24">
+      {/* One column on phones, two side by side from tablet width up. */}
+      <div className="grid w-full max-w-[1000px] grid-cols-1 gap-8 md:grid-cols-2">
         {chapters.map((chapter, index) => (
           <div
             key={index}
