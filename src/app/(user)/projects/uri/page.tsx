@@ -1,6 +1,5 @@
 import VideoPlayer from '@/components/VideoPlayer'
 import Dropdown from '@/components/Dropdown'
-import PhotoBackdrop from '@/components/PhotoBackdrop'
 import PhotoMarquee from '@/components/PhotoMarquee'
 
 export const metadata = {
@@ -187,6 +186,52 @@ function Stat({ value, label }: { value: string; label: string }) {
       </span>
       <span className="text-gray-700">{label}</span>
     </div>
+  )
+}
+
+// A city card: a photo on top of a white text box, with the city's emblem
+// faded behind the text. Cards in a grid row stretch to the same height, so
+// their photos and text boxes line up.
+function CityCard({
+  title,
+  photo,
+  photoAlt,
+  photoPosition,
+  emblem,
+  children,
+}: {
+  title: string
+  photo: string
+  photoAlt: string
+  // CSS object-position: which part of the photo stays visible when cropped.
+  photoPosition: string
+  // The city's logo or seal (a transparent PNG), shown faded behind the text.
+  emblem: string
+  children: React.ReactNode
+}) {
+  return (
+    <article className="flex h-full flex-col overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-lime-200">
+      <img
+        src={photo}
+        alt={photoAlt}
+        loading="lazy"
+        className="aspect-[16/10] w-full object-cover"
+        style={{ objectPosition: photoPosition }}
+      />
+      <div className="relative flex-1 overflow-hidden p-6 md:p-8">
+        <img
+          src={emblem}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[85%] max-h-72 w-auto -translate-x-1/2 -translate-y-1/2 opacity-[0.12]"
+        />
+        <div className="relative">
+          <h3 className="mb-3 text-2xl font-bold text-lime-950">{title}</h3>
+          <div className="space-y-3 text-gray-700">{children}</div>
+        </div>
+      </div>
+    </article>
   )
 }
 
@@ -426,7 +471,11 @@ export default function Page() {
           rows={[
             [
               { src: '/uri/mou-02.jpg', width: 1600, height: 1067 },
-              { src: '/uri/kodola-mou.jpg', width: 1600, height: 1294 },
+              {
+                src: '/uri/nizhyn-council-call-2.jpg',
+                width: 1500,
+                height: 998,
+              },
               { src: '/uri/mou-03.jpg', width: 1600, height: 1067 },
               { src: '/uri/nizhyn-sign.jpg', width: 957, height: 1280 },
               { src: '/uri/mou-04.jpg', width: 1600, height: 1067 },
@@ -478,57 +527,44 @@ export default function Page() {
         </PhotoMarquee>
 
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-16 md:grid-cols-2 md:py-20">
-          <PhotoBackdrop
-            className="rounded-2xl"
-            photos={[
-              { src: '/uri/mikhail-nizhyn-mayor.jpg', position: 'center top' },
-              { color: '#009b25' },
-            ]}
-            gridClassName="grid-cols-1 grid-rows-2"
+          <CityCard
+            title="Nizhyn, Ukraine"
+            photo="/uri/kodola-mou.jpg"
+            photoAlt="Nizhyn Mayor Oleksandr Kodola holding the signed memorandum of understanding"
+            photoPosition="center 20%"
+            emblem="/uri/nizhyn-logo.png"
           >
-            <div className="flex min-h-[36rem] items-end p-4 md:p-6">
-              <TextCard title="Nizhyn, Ukraine">
-                <p>
-                  Nizhyn is a historic city of about 65,000 people on the Oster
-                  River in northern Ukraine&apos;s Chernihiv region, roughly 116
-                  km (72 miles) northeast of Kyiv. First mentioned in 1147, it
-                  is home to Nizhyn Gogol State University, which began in 1805
-                  as the lyceum where writer Nikolai Gogol studied.
-                </p>
-                <p>
-                  The Chernihiv region was among the first areas attacked in
-                  Russia&apos;s full-scale invasion in February 2022.
-                </p>
-              </TextCard>
-            </div>
-          </PhotoBackdrop>
+            <p>
+              Nizhyn is a historic city of about 65,000 people on the Oster
+              River in northern Ukraine&apos;s Chernihiv region, roughly 116 km
+              (72 miles) northeast of Kyiv. First mentioned in 1147, it is home
+              to Nizhyn Gogol State University, which began in 1805 as the
+              lyceum where writer Nikolai Gogol studied.
+            </p>
+            <p>
+              The Chernihiv region was among the first areas attacked in
+              Russia&apos;s full-scale invasion in February 2022.
+            </p>
+          </CityCard>
 
-          <PhotoBackdrop
-            className="rounded-2xl"
-            photos={[
-              {
-                src: '/uri/mikhail-gainesville-mayor.jpg',
-                position: 'center 85%',
-              },
-              { color: '#009b25' },
-            ]}
-            gridClassName="grid-cols-1 grid-rows-2"
+          <CityCard
+            title="Gainesville, Florida"
+            photo="/uri/gainesville-mou-signing.jpg"
+            photoAlt="Gainesville Mayor Harvey Ward and a member of the Nizhyn delegation holding the signed memorandum of understanding"
+            photoPosition="center 40%"
+            emblem="/uri/gainesville-seal.png"
           >
-            <div className="flex min-h-[36rem] items-end p-4 md:p-6">
-              <TextCard title="Gainesville, Florida">
-                <p>
-                  Gainesville is a city of about 140,000 people in north-central
-                  Florida and the home of the University of Florida, where URI
-                  began.
-                </p>
-                <p>
-                  Through the alliance, Gainesville residents, students and
-                  organizations can connect directly with Nizhyn and support its
-                  recovery.
-                </p>
-              </TextCard>
-            </div>
-          </PhotoBackdrop>
+            <p>
+              Gainesville is a city of about 140,000 people in north-central
+              Florida and the home of the University of Florida, where URI
+              began.
+            </p>
+            <p>
+              Through the alliance, Gainesville residents, students and
+              organizations can connect directly with Nizhyn and support its
+              recovery.
+            </p>
+          </CityCard>
         </div>
 
         <div className="mx-auto max-w-3xl px-4 pb-20 text-center">
