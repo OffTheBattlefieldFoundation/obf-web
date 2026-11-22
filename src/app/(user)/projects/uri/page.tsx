@@ -1,6 +1,7 @@
 import VideoPlayer from '@/components/VideoPlayer'
 import Dropdown from '@/components/Dropdown'
 import PhotoBackdrop from '@/components/PhotoBackdrop'
+import PhotoMarquee from '@/components/PhotoMarquee'
 
 export const metadata = {
   title: 'Off the Battlefield Foundation - Ukraine Rebuilding Initiative',
@@ -415,23 +416,30 @@ export default function Page() {
           </figure>
         </div>
 
-        <PhotoBackdrop
+        <PhotoMarquee
           className="mt-12"
-          photos={[
-            '/uri/mou-02.jpg',
-            '/uri/mou-03.jpg',
-            '/uri/mou-04.jpg',
-            '/uri/mou-07.jpg',
-            '/uri/mou-08.jpg',
-            '/uri/mou-10.jpg',
-            '/uri/mou-06.jpg',
-            '/uri/mou-09.jpg',
-            { src: '/uri/kodola-mou.jpg', position: 'center top' },
-            '/uri/nizhyn-council-call.jpg',
-            { src: '/uri/nizhyn-sign.jpg', position: 'center 40%' },
-            { src: '/uri/team-century-tower.jpg', position: 'center 60%' },
+          rows={[
+            [
+              { src: '/uri/mou-02.jpg', width: 1600, height: 1067 },
+              { src: '/uri/kodola-mou.jpg', width: 1600, height: 1294 },
+              { src: '/uri/mou-03.jpg', width: 1600, height: 1067 },
+              { src: '/uri/nizhyn-sign.jpg', width: 957, height: 1280 },
+              { src: '/uri/mou-04.jpg', width: 1600, height: 1067 },
+              { src: '/uri/mou-07.jpg', width: 1600, height: 1067 },
+            ],
+            [
+              { src: '/uri/mou-08.jpg', width: 1600, height: 1067 },
+              { src: '/uri/team-century-tower.jpg', width: 1600, height: 1200 },
+              { src: '/uri/mou-10.jpg', width: 1600, height: 1200 },
+              { src: '/uri/mou-09.jpg', width: 1200, height: 1600 },
+              {
+                src: '/uri/nizhyn-council-call.jpg',
+                width: 1600,
+                height: 1050,
+              },
+              { src: '/uri/mou-06.jpg', width: 1600, height: 1067 },
+            ],
           ]}
-          gridClassName="grid-cols-2 md:grid-cols-6"
         >
           <div className="mx-auto max-w-3xl space-y-6 px-4 py-16 md:py-24">
             <TextCard title="What is a sister city alliance?">
@@ -462,7 +470,7 @@ export default function Page() {
               </p>
             </TextCard>
           </div>
-        </PhotoBackdrop>
+        </PhotoMarquee>
 
         <div className="mx-auto grid max-w-6xl gap-8 px-4 py-16 md:grid-cols-2 md:py-20">
           <PhotoBackdrop

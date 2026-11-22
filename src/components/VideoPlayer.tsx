@@ -107,7 +107,7 @@ export default function VideoPlayer({
           fontWeight: overlaySettings.fontWeight,
           color: overlaySettings.textColor,
           boxShadow: overlaySettings.boxShadow,
-          zIndex: 10,
+          zIndex: 1,
         }}
       >
         {/* Logo */}

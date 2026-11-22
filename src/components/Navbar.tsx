@@ -15,7 +15,7 @@ export default function MyNavbar({ isAdmin }: NavbarProps) {
   return (
     <div
       className={
-        'fixed top-0 z-10 w-full transition-all ease-out ' +
+        'fixed top-0 z-50 w-full transition-all ease-out ' +
         (scrollTrigger ? 'bg-lime-50' : 'bg-lime-25')
       }
       style={{ boxShadow: scrollTrigger ? '0px 0px 2px 0px' : 'none' }}

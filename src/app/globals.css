@@ -72,3 +72,27 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Slowly scrolling photo rows (PhotoMarquee). The track holds the photos
+   twice, so moving it left by half its width loops seamlessly. */
+@keyframes photo-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.photo-marquee-track {
+  animation-name: photo-marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo-marquee-track {
+    animation: none;
+  }
+}
