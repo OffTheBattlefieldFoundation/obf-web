@@ -75,26 +75,19 @@ export async function POST(req: Request) {
             custom: 'Which project should your donation support?',
           },
           dropdown: {
+            // Stripe requires option values to be alphanumeric.
             options: [
               {
-                label: 'Engineering - Bomb Shelter at Bus Stop',
-                value: 'engineering',
+                label: 'Ukraine Rebuilding Initiative - Cultural Affairs',
+                value: 'uriCulturalAffairs',
               },
               {
-                label: 'Public Health - Medical and Food Packages',
-                value: 'publicHealth',
+                label: 'Ukraine Rebuilding Initiative - Engineering',
+                value: 'uriEngineering',
               },
               {
-                label: 'Prosthetics - Prosthesis for Veterans',
-                value: 'prosthetics',
-              },
-              {
-                label: 'Agriculture - Water Quality Research',
-                value: 'agriculture',
-              },
-              {
-                label: 'Cultural Affairs - Student Cultural Exchanges',
-                value: 'culturalAffairs',
+                label: 'Civically Combatting Antisemitism and Islamophobia',
+                value: 'ccai',
               },
             ],
           },

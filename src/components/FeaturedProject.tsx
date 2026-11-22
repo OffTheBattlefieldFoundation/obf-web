@@ -100,6 +100,23 @@ export default function FeaturedProject() {
           </p>
         </div>
       </PhotoMarquee>
+
+      {/* Donate call to action */}
+      <div className="bg-[#007a1d] px-4 py-14 text-center text-white md:py-16">
+        <h2 className="text-3xl font-bold md:text-4xl">
+          Help us keep building
+        </h2>
+        <p className="mx-auto mt-3 max-w-2xl text-lg text-white/90">
+          Your donation funds projects like the new pump in Nizhyn and the
+          student exchanges between our two cities.
+        </p>
+        <Link
+          href="/donate"
+          className="mt-8 inline-block rounded-full bg-white px-10 py-4 text-xl font-bold text-[#007a1d] shadow-lg transition hover:-translate-y-0.5 hover:bg-lime-50 hover:shadow-xl"
+        >
+          Donate ♥
+        </Link>
+      </div>
     </section>
   )
 }
