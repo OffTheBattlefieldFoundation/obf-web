@@ -193,14 +193,16 @@ function Stat({ value, label }: { value: string; label: string }) {
 export default function Page() {
   return (
     <main>
-      {/* Video */}
-      <div className="mx-auto max-w-6xl px-4 pt-32 md:px-8">
-        <VideoPlayer
-          videoSettings={video}
-          overlaySettings={overlay}
-          logoSettings={logo}
-        />
-      </div>
+      {/* Video, on the same light OBF green as the section below it */}
+      <section className="bg-[#009b25]/10">
+        <div className="mx-auto max-w-6xl px-4 pt-32 md:px-8">
+          <VideoPlayer
+            videoSettings={video}
+            overlaySettings={overlay}
+            logoSettings={logo}
+          />
+        </div>
+      </section>
 
       {/* About URI, on a light wash of the OBF logo green */}
       <section className="bg-[#009b25]/10">
