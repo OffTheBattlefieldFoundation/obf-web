@@ -202,197 +202,200 @@ export default function Page() {
         />
       </div>
 
-      {/* About URI */}
-      <section className="mx-auto max-w-3xl px-4 py-16 md:py-20">
-        <SectionHeading
-          eyebrow="Our project"
-          title="The Ukraine Rebuilding Initiative"
-        />
-        <p className="text-center text-lg text-gray-700">
-          The Ukraine Rebuilding Initiative (URI) is the first project of the
-          Off the Battlefield Foundation. Started by students at the University
-          of Florida, URI brings students, universities and city partners
-          together to help rebuild communities in Ukraine affected by the war,
-          beginning with Gainesville&apos;s sister city, Nizhyn.
-        </p>
-
-        <div className="mt-10 space-y-4">
-          <Dropdown
-            title="Cultural Affairs"
-            summary="Virtual exchanges connecting students and professors in Gainesville and Nizhyn."
-          >
-            <h4 className="text-lg font-semibold text-lime-950">
-              A partnership with Nizhyn Gogol State University
-            </h4>
-            <p>
-              URI created a partnership between Nizhyn Gogol State University
-              (NGSU) and the UF International Center (UFIC), connecting students
-              and faculty across both cities.
-            </p>
-
-            <Stat
-              value="75+"
-              label="virtual cultural exchange partnerships between UF and Nizhyn students"
-            />
-
-            <div className="pt-2">
-              <h4 className="mb-2 font-semibold text-lime-950">
-                Student language exchange
-              </h4>
-              <p>
-                Through these partnerships, UF students help Nizhyn students
-                learn English, and Nizhyn students teach Ukrainian to their UF
-                partners.
-              </p>
-            </div>
-            <Photo
-              src="/uri/cultural-zoom.jpg"
-              alt="UF and Nizhyn students together on a Zoom call"
-              caption="A virtual exchange session with students from UF and Nizhyn"
-              aspectClassName="aspect-[20/9]"
-            />
-
-            <div className="pt-4">
-              <h4 className="mb-2 font-semibold text-lime-950">
-                Professor Exchange
-              </h4>
-              <p>
-                Through our Professor Exchange program, we invited UF professors
-                to speak about Florida&apos;s history, and Nizhyn professors to
-                speak about Ukrainian history.
-              </p>
-            </div>
-            <Photo
-              src="/uri/prof-group.jpg"
-              alt="Professor Exchange attendees in Gainesville, with Nizhyn participants joining on screen"
-              caption="Attendees in Gainesville, with participants from Nizhyn joining by video"
-              aspectClassName="aspect-[3/2]"
-            />
-            <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
-              <Photo
-                src="/uri/prof-title-slide-2.jpg"
-                alt="URI students in front of the title slide: University of Florida and Nizhyn Gogol State University Professor Exchange, The History of Ukraine and Florida"
-              />
-              <Photo
-                src="/uri/prof-live-exchange.jpg"
-                alt="A UF professor in Gainesville in conversation with a Nizhyn professor on video"
-              />
-              <Photo
-                src="/uri/prof-noll-gifts.jpg"
-                alt="A UF professor holding a Ukraine candle and a manatee keychain"
-              />
-              <Photo
-                src="/uri/prof-faculty-table.jpg"
-                alt="Faculty attending the Professor Exchange"
-              />
-              <Photo
-                src="/uri/prof-zoom-lecture.jpg"
-                alt="A Nizhyn professor presenting on Ukrainian history by video"
-                position="center 35%"
-              />
-              <Photo
-                src="/uri/prof-florida-lecture.jpg"
-                alt="Students listening to a lecture on Florida's political history"
-              />
-            </div>
-          </Dropdown>
-
-          <Dropdown
-            title="Engineering"
-            summary="Replacing aging wastewater infrastructure in Nizhyn."
-          >
-            <h4 className="text-lg font-semibold text-lime-950">
-              Wastewater pump station · Nizhyn, Ukraine
-            </h4>
-            <p>
-              Working alongside an engineering firm in Ukraine and the Nizhyn
-              City Council, URI&apos;s engineering team helped replace an aging
-              pump at one of Nizhyn&apos;s wastewater pump stations, operated by
-              Nizhynvodokanal, the city&apos;s water utility. The old pumps wore
-              out quickly and used excessive amounts of electricity. The new
-              pump is more energy-efficient, safer to operate and needs less
-              maintenance, helping ensure the city does not face a wastewater
-              crisis in the coming years due to aging infrastructure.
-            </p>
-
-            <Stat
-              value="43%"
-              label="less energy used by the new pump than the old system"
-            />
-
-            <div className="grid gap-4 pt-2 sm:grid-cols-2">
-              <Photo
-                src="/uri/pump-old.jpg"
-                alt="The old wastewater pump in the Nizhyn pump station"
-                label="Before"
-                caption="The aging pump that was replaced"
-              />
-              <Photo
-                src="/uri/pump-new.jpg"
-                alt="The new HOMA submersible sewage pump"
-                label="After"
-                position="center 25%"
-                caption="The new HOMA pump, delivered to the station"
-              />
-            </div>
-
-            <div className="grid items-start gap-6 pt-4 sm:grid-cols-2">
-              <div>
-                <h4 className="mb-2 font-semibold text-lime-950">
-                  What our team did
-                </h4>
-                <ul className="list-disc space-y-1 pl-5">
-                  <li>Performed the pump calculations</li>
-                  <li>Selected the pump manufacturer and model</li>
-                  <li>Secured funding for the purchase</li>
-                  <li>Coordinated delivery to Nizhyn</li>
-                </ul>
-              </div>
-              <Photo
-                src="/uri/engineering-planning.jpg"
-                alt="URI students in a planning session"
-                caption="A URI engineering planning session"
-              />
-            </div>
-
-            <div className="grid items-start gap-6 pt-4 sm:grid-cols-2">
-              <div>
-                <h4 className="mb-2 font-semibold text-lime-950">The pump</h4>
-                <ul className="list-disc space-y-1 pl-5">
-                  <li>HOMA submersible sewage pump, made in Germany</li>
-                  <li>Installed horizontally in a dry well</li>
-                  <li>Flow rate of 145 cubic meters per hour</li>
-                  <li>Cost: $5,300 (225,000 UAH / €4,600)</li>
-                </ul>
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                <Photo
-                  src="/uri/pump-new-side.jpg"
-                  alt="The new pump laid out before installation"
-                />
-                <Photo
-                  src="/uri/pump-new-nameplate.jpg"
-                  alt="The new pump's nameplate"
-                />
-              </div>
-            </div>
-
-            <blockquote className="mt-4 border-l-4 border-green-700 pl-4 italic">
-              &ldquo;Thanks to Ukraine Rebuilding Initiative for the repeated
-              support of the Nizhyn community and help in strengthening critical
-              infrastructure.&rdquo;
-              <footer className="mt-1 text-sm not-italic text-gray-600">
-                Nizhyn City Council (translated)
-              </footer>
-            </blockquote>
-          </Dropdown>
-        </div>
-
-        <div className="mt-10 text-center">
-          <p className="mb-4 text-gray-700">
-            Want to get hands-on experience with a dedicated team?
+      {/* About URI, on a light wash of the OBF logo green */}
+      <section className="bg-[#009b25]/10">
+        <div className="mx-auto max-w-3xl px-4 py-16 md:py-20">
+          <SectionHeading
+            eyebrow="Our project"
+            title="The Ukraine Rebuilding Initiative"
+          />
+          <p className="text-center text-lg text-gray-700">
+            The Ukraine Rebuilding Initiative (URI) is the first project of the
+            Off the Battlefield Foundation. Started by students at the
+            University of Florida, URI brings students, universities and city
+            partners together to help rebuild communities in Ukraine affected by
+            the war, beginning with Gainesville&apos;s sister city, Nizhyn.
           </p>
-          <ButtonLink href={STUDENT_INTEREST_FORM}>Join our team</ButtonLink>
+
+          <div className="mt-10 space-y-4">
+            <Dropdown
+              title="Cultural Affairs"
+              summary="Virtual exchanges connecting students and professors in Gainesville and Nizhyn."
+            >
+              <h4 className="text-lg font-semibold text-lime-950">
+                A partnership with Nizhyn Gogol State University
+              </h4>
+              <p>
+                URI created a partnership between Nizhyn Gogol State University
+                (NGSU) and the UF International Center (UFIC), connecting
+                students and faculty across both cities.
+              </p>
+
+              <Stat
+                value="75+"
+                label="virtual cultural exchange partnerships between UF and Nizhyn students"
+              />
+
+              <div className="pt-2">
+                <h4 className="mb-2 font-semibold text-lime-950">
+                  Student language exchange
+                </h4>
+                <p>
+                  Through these partnerships, UF students help Nizhyn students
+                  learn English, and Nizhyn students teach Ukrainian to their UF
+                  partners.
+                </p>
+              </div>
+              <Photo
+                src="/uri/cultural-zoom.jpg"
+                alt="UF and Nizhyn students together on a Zoom call"
+                caption="A virtual exchange session with students from UF and Nizhyn"
+                aspectClassName="aspect-[20/9]"
+              />
+
+              <div className="pt-4">
+                <h4 className="mb-2 font-semibold text-lime-950">
+                  Professor Exchange
+                </h4>
+                <p>
+                  Through our Professor Exchange program, we invited UF
+                  professors to speak about Florida&apos;s history, and Nizhyn
+                  professors to speak about Ukrainian history.
+                </p>
+              </div>
+              <Photo
+                src="/uri/prof-group.jpg"
+                alt="Professor Exchange attendees in Gainesville, with Nizhyn participants joining on screen"
+                caption="Attendees in Gainesville, with participants from Nizhyn joining by video"
+                aspectClassName="aspect-[3/2]"
+              />
+              <div className="grid grid-cols-2 gap-3 md:grid-cols-3">
+                <Photo
+                  src="/uri/prof-title-slide-2.jpg"
+                  alt="URI students in front of the title slide: University of Florida and Nizhyn Gogol State University Professor Exchange, The History of Ukraine and Florida"
+                />
+                <Photo
+                  src="/uri/prof-live-exchange.jpg"
+                  alt="A UF professor in Gainesville in conversation with a Nizhyn professor on video"
+                />
+                <Photo
+                  src="/uri/prof-noll-gifts.jpg"
+                  alt="A UF professor holding a Ukraine candle and a manatee keychain"
+                />
+                <Photo
+                  src="/uri/prof-faculty-table.jpg"
+                  alt="Faculty attending the Professor Exchange"
+                />
+                <Photo
+                  src="/uri/prof-zoom-lecture.jpg"
+                  alt="A Nizhyn professor presenting on Ukrainian history by video"
+                  position="center 35%"
+                />
+                <Photo
+                  src="/uri/prof-florida-lecture.jpg"
+                  alt="Students listening to a lecture on Florida's political history"
+                />
+              </div>
+            </Dropdown>
+
+            <Dropdown
+              title="Engineering"
+              summary="Replacing aging wastewater infrastructure in Nizhyn."
+            >
+              <h4 className="text-lg font-semibold text-lime-950">
+                Wastewater pump station · Nizhyn, Ukraine
+              </h4>
+              <p>
+                Working alongside an engineering firm in Ukraine and the Nizhyn
+                City Council, URI&apos;s engineering team helped replace an
+                aging pump at one of Nizhyn&apos;s wastewater pump stations,
+                operated by Nizhynvodokanal, the city&apos;s water utility. The
+                old pumps wore out quickly and used excessive amounts of
+                electricity. The new pump is more energy-efficient, safer to
+                operate and needs less maintenance, helping ensure the city does
+                not face a wastewater crisis in the coming years due to aging
+                infrastructure.
+              </p>
+
+              <Stat
+                value="43%"
+                label="less energy used by the new pump than the old system"
+              />
+
+              <div className="grid gap-4 pt-2 sm:grid-cols-2">
+                <Photo
+                  src="/uri/pump-old.jpg"
+                  alt="The old wastewater pump in the Nizhyn pump station"
+                  label="Before"
+                  caption="The aging pump that was replaced"
+                />
+                <Photo
+                  src="/uri/pump-new.jpg"
+                  alt="The new HOMA submersible sewage pump"
+                  label="After"
+                  position="center 25%"
+                  caption="The new HOMA pump, delivered to the station"
+                />
+              </div>
+
+              <div className="grid items-start gap-6 pt-4 sm:grid-cols-2">
+                <div>
+                  <h4 className="mb-2 font-semibold text-lime-950">
+                    What our team did
+                  </h4>
+                  <ul className="list-disc space-y-1 pl-5">
+                    <li>Performed the pump calculations</li>
+                    <li>Selected the pump manufacturer and model</li>
+                    <li>Secured funding for the purchase</li>
+                    <li>Coordinated delivery to Nizhyn</li>
+                  </ul>
+                </div>
+                <Photo
+                  src="/uri/engineering-planning.jpg"
+                  alt="URI students in a planning session"
+                  caption="A URI engineering planning session"
+                />
+              </div>
+
+              <div className="grid items-start gap-6 pt-4 sm:grid-cols-2">
+                <div>
+                  <h4 className="mb-2 font-semibold text-lime-950">The pump</h4>
+                  <ul className="list-disc space-y-1 pl-5">
+                    <li>HOMA submersible sewage pump, made in Germany</li>
+                    <li>Installed horizontally in a dry well</li>
+                    <li>Flow rate of 145 cubic meters per hour</li>
+                    <li>Cost: $5,300 (225,000 UAH / €4,600)</li>
+                  </ul>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <Photo
+                    src="/uri/pump-new-side.jpg"
+                    alt="The new pump laid out before installation"
+                  />
+                  <Photo
+                    src="/uri/pump-new-nameplate.jpg"
+                    alt="The new pump's nameplate"
+                  />
+                </div>
+              </div>
+
+              <blockquote className="mt-4 border-l-4 border-green-700 pl-4 italic">
+                &ldquo;Thanks to Ukraine Rebuilding Initiative for the repeated
+                support of the Nizhyn community and help in strengthening
+                critical infrastructure.&rdquo;
+                <footer className="mt-1 text-sm not-italic text-gray-600">
+                  Nizhyn City Council (translated)
+                </footer>
+              </blockquote>
+            </Dropdown>
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="mb-4 text-gray-700">
+              Want to get hands-on experience with a dedicated team?
+            </p>
+            <ButtonLink href={STUDENT_INTEREST_FORM}>Join our team</ButtonLink>
+          </div>
         </div>
       </section>
 

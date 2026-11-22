@@ -35,16 +35,14 @@ export default function PhotoBackdrop({
               src={src}
               alt=""
               loading="lazy"
-              className="h-full w-full object-cover opacity-70"
+              className="h-full w-full object-cover opacity-80"
               style={{ objectPosition: position }}
             />
           )
         })}
       </div>
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-b from-lime-50/50 via-lime-50/30 to-lime-50/60"
-      />
+      {/* A light wash of the OBF logo green (#009b25) over the photos. */}
+      <div aria-hidden="true" className="absolute inset-0 bg-[#009b25]/15" />
       <div className="relative">{children}</div>
     </section>
   )
