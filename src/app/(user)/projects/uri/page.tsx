@@ -5,7 +5,7 @@ import GallerySection from '@/components/GallerySection'
 import StudentInterestSection from '@/components/StudentInterestSection'
 
 export const metadata = {
-  title: 'Off the Battlefield Foundation - University of Florida Chapter',
+  title: 'Off the Battlefield Foundation - Ukraine Rebuilding Initiative',
   description: 'Helping veterans connect with compassionate companions.',
 }
 
@@ -31,19 +31,19 @@ export default function Home() {
       borderWidth: '4px',
       padding: '10px 20px',
       boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
-      text: 'University of Florida Chapter',
+      text: 'Ukraine Rebuilding Initiative',
       textColor: '#333',
       fontSize: '14px',
       fontWeight: 'bold',
     },
     logo: {
-      src: '/uf_logo.png',
-      alt: 'University of Florida Chapter Logo',
+      src: '/URI-Logo.png',
+      alt: 'Ukraine Rebuilding Initiative Logo',
       height: '40px',
       marginRight: '10px',
     },
     description: {
-      chapter_name: 'University of Florida Chapter',
+      chapter_name: 'the Ukraine Rebuilding Initiative',
       background_color: 'white',
       borderColor: 'green',
       borderRadius: '15px',
