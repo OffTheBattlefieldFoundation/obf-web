@@ -83,7 +83,7 @@ const overlay = {
 }
 
 const logo = {
-  src: '/URI-Logo.png',
+  src: '/logos/uri-logo.png',
   alt: 'Ukraine Rebuilding Initiative Logo',
   height: '40px',
   marginRight: '10px',

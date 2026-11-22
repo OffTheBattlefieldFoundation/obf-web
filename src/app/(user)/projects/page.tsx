@@ -12,14 +12,14 @@ export default function Home() {
     // title: Text displayed below the logo.
     {
       href: '/projects/uri',
-      imgSrc: '/URI-Logo.png',
+      imgSrc: '/logos/uri-logo.png',
       altText: 'Ukraine Rebuilding Initiative Logo',
       title: 'Ukraine Rebuilding Initiative',
     },
     {
       href: '/projects/ccai',
-      imgSrc: '/obf_logo.png',
-      altText: 'Off the Battlefield Foundation Logo',
+      imgSrc: '/logos/ccai-logo.svg',
+      altText: 'Civically Combatting Antisemitism and Islamophobia Logo',
       title: 'Civically Combatting Antisemitism and Islamophobia',
     },
     {
