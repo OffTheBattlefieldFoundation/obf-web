@@ -482,7 +482,7 @@ export default function Page() {
             className="rounded-2xl"
             photos={[
               { src: '/uri/mikhail-nizhyn-mayor.jpg', position: 'center top' },
-              '/uri/mou-05.jpg',
+              { color: '#009b25' },
             ]}
             gridClassName="grid-cols-1 grid-rows-2"
           >
@@ -510,7 +510,7 @@ export default function Page() {
                 src: '/uri/mikhail-gainesville-mayor.jpg',
                 position: 'center 85%',
               },
-              '/uri/mou-01.jpg',
+              { color: '#009b25' },
             ]}
             gridClassName="grid-cols-1 grid-rows-2"
           >

@@ -1,6 +1,7 @@
-// A photo, or a photo with a CSS object-position (e.g. 'center top') that
-// picks which part stays visible when the photo is cropped to fit.
-type Photo = string | { src: string; position: string }
+// A photo, a photo with a CSS object-position (e.g. 'center top') that
+// picks which part stays visible when the photo is cropped to fit, or a
+// solid color block in place of a photo.
+type Photo = string | { src: string; position: string } | { color: string }
 
 interface PhotoBackdropProps {
   photos: Photo[]
@@ -24,7 +25,16 @@ export default function PhotoBackdrop({
         aria-hidden="true"
         className={`absolute inset-0 grid ${gridClassName}`}
       >
-        {photos.map((photo) => {
+        {photos.map((photo, i) => {
+          if (typeof photo !== 'string' && 'color' in photo) {
+            return (
+              <div
+                key={`color-${i}`}
+                className="h-full w-full"
+                style={{ backgroundColor: photo.color }}
+              />
+            )
+          }
           const { src, position } =
             typeof photo === 'string'
               ? { src: photo, position: 'center' }
