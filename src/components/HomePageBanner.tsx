@@ -23,6 +23,18 @@ export default function HomePageBanner() {
         </h2>
         <a
           href="#our-work"
+          onClick={(event) => {
+            // Glide down to the section instead of jumping there. Visitors
+            // who prefer reduced motion still jump straight to it.
+            const target = document.getElementById('our-work')
+            if (!target) return
+            event.preventDefault()
+            const reduce = window.matchMedia(
+              '(prefers-reduced-motion: reduce)',
+            ).matches
+            target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' })
+            history.replaceState(null, '', '#our-work')
+          }}
           className="mt-6 inline-block rounded-full bg-green-700 px-6 py-3 font-semibold text-white shadow-md transition-colors hover:bg-green-800"
         >
           See our work ↓
