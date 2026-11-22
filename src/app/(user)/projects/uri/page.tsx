@@ -592,8 +592,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* In the news */}
-      <section className="border-t border-lime-200 bg-white/60">
+      {/* In the news, on the same light OBF green as the top of the page */}
+      <section className="bg-[#009b25]/10">
         <div className="mx-auto max-w-5xl px-4 py-16 md:py-20">
           <SectionHeading eyebrow="Press" title="URI in the news" />
           <ul className="grid gap-4 md:grid-cols-2">
