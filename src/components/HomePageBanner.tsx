@@ -1,5 +1,6 @@
 'use client'
 import React from 'react'
+import Link from 'next/link'
 import Typewriter from 'typewriter-effect'
 
 export default function HomePageBanner() {
@@ -21,24 +22,32 @@ export default function HomePageBanner() {
             />
           </div>
         </h2>
-        <a
-          href="#our-work"
-          onClick={(event) => {
-            // Glide down to the section instead of jumping there. Visitors
-            // who prefer reduced motion still jump straight to it.
-            const target = document.getElementById('our-work')
-            if (!target) return
-            event.preventDefault()
-            const reduce = window.matchMedia(
-              '(prefers-reduced-motion: reduce)',
-            ).matches
-            target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' })
-            history.replaceState(null, '', '#our-work')
-          }}
-          className="mt-6 inline-block rounded-full bg-green-700 px-6 py-3 font-semibold text-white shadow-md transition-colors hover:bg-green-800"
-        >
-          See our work ↓
-        </a>
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-4">
+          <Link
+            href="/donate"
+            className="inline-block rounded-full bg-[#007a1d] px-8 py-4 text-lg font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#006317] hover:shadow-xl"
+          >
+            Donate ♥
+          </Link>
+          <a
+            href="#our-work"
+            onClick={(event) => {
+              // Glide down to the section instead of jumping there. Visitors
+              // who prefer reduced motion still jump straight to it.
+              const target = document.getElementById('our-work')
+              if (!target) return
+              event.preventDefault()
+              const reduce = window.matchMedia(
+                '(prefers-reduced-motion: reduce)',
+              ).matches
+              target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' })
+              history.replaceState(null, '', '#our-work')
+            }}
+            className="inline-block rounded-full border-2 border-green-700 bg-white/70 px-6 py-3 font-semibold text-green-800 transition-colors hover:bg-white"
+          >
+            See our work ↓
+          </a>
+        </div>
       </div>
     </div>
   )
